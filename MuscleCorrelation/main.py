@@ -15,6 +15,7 @@ def detect_face_on_image(path):
             for muscle in muscId.muscle_list:
                 if(i in muscle.muscle_points):
                     achou = True
+                    cv2.putText(img2,".",lms,cv2.FONT_HERSHEY_PLAIN,6,(0,0,0),4) 
                     cv2.putText(img2,str(i),lms,cv2.FONT_HERSHEY_PLAIN,1.4,muscle.color,1)                        
                     break
             if(not achou):
