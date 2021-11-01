@@ -6,4 +6,6 @@ Este é um novo repositório para aplicar as tecnicas de analise usadas anterior
 
 Na pasta /MuscleCorrelation estão os algoritimos utilizados para identificar os musculos da face e relacioná-los com os pontos fornecidos pelo modelo.
 Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridiculamente gigante)
-<img src="/MuscleCorrelation/human-muscle-landmarks-colored" height="600px" width="auto"/>
+<p align="center">
+<img src="./MuscleCorrelation/human-muscles-landmarks-colored.jpg" height="600px" width="auto"/>
+</p>
