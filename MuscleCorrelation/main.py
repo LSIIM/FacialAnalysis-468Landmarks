@@ -14,8 +14,11 @@ def detect_face_on_image(path):
     img_f, faces = detector.findFaceMesh(img)
     print(name)
     #cv2.namedWindow('Muscles', cv2.WINDOW_NORMAL)
-
-    while(1):
+    lp = input(
+        "Quer mostrar a imagem em loop para adicionar os pontos enquanto os analisa? s/n   ")
+    loop = True
+    while(loop):
+        loop = lp == "s" or lp == "S"
         img2 = img_f.copy()
         muscles = get_muscles_from_csv()
         for face in faces:
@@ -38,10 +41,12 @@ def detect_face_on_image(path):
         for i, muscle in enumerate(muscles):
             cv2.putText(img2, muscle.muscle_name, (100, 500 + 200*i),
                         cv2.FONT_HERSHEY_PLAIN, 10, muscle.color, 3)
-        cv2.imshow("Muscles", cv2.resize(
-            img2, (1000, 1000), interpolation=cv2.INTER_AREA))
-        cv2.waitKey(1)
+        if(loop):
+            cv2.imshow("Muscles", cv2.resize(
+                img2, (1000, 1000), interpolation=cv2.INTER_AREA))
+            cv2.waitKey(1)
         cv2.imwrite(name+"-landmarks-colored.jpg", img2)
+    print("Fim")
 
 
 if __name__ == "__main__":
