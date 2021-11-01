@@ -7,7 +7,7 @@ def detect_face_on_image(path):
     name = name[len(name)-1].split('.')
     name = name[0]
     img = cv2.imread(path)
-    img2,faces = detector.findFaceMesh(img,True)
+    img2,faces = detector.findFaceMesh(img)
     print(name)
     for face in faces:
         for i,lms in enumerate(face):
