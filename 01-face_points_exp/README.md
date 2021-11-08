@@ -4,23 +4,23 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 
 ```
 .
-├── /processed </br>
-| </br>
-│   ├── /face_points </br>
-│   |   |   </br>
-│   |   ├── /[id_expressão] </br>
-│   |   |   |</br>
-│   |   |   ├──/[id_pessoa] </br>
-│   |   |   |   | </br>
-│   |   |   |   ├── positions.csv (vai conter as posições xy dos landmarks das 3 fotos e uma média) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_1.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_1.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_mean.png (somente a mascara simples com uma linha preta e fundo branco) </br>
-│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_mean.png (somente a mascara complexa de triangulos com uma linha preta e fundo branco) </br>
+├── /processed
+|
+│   ├── /face_points
+│   |   |
+│   |   ├── /[id_expressão]
+│   |   |   |
+│   |   |   ├──/[id_pessoa]
+│   |   |   |   |
+│   |   |   |   ├── positions.csv (vai conter as posições xy dos landmarks das 3 fotos e uma média)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_1.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara simples ligando alguns pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_1.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png (Foto da pessoa, mas com uma linha em cima de uma mascara complexa com triangulos ligando todos os pontos)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-line_mean.png (somente a mascara simples com uma linha preta e fundo branco)
+│   |   |   |   ├── [id_pessoa]-[id_expressão]\mask-triangles_mean.png (somente a mascara complexa de triangulos com uma linha preta e fundo branco)
 ```
 
 ## Procedimentos
