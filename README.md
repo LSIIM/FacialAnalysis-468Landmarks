@@ -19,7 +19,7 @@ O objetivo é coletar os dados para que possam ser analisados e correlacionados 
 
 ## Experimento 2 - Analisar os dados obtidos no Exp1 para encontrar algum padrão
 
-O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv
+O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv. O experimento esta descrito na pasta `01-pattern_analysis`
 
 # Dados
 
