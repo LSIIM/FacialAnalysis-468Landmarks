@@ -4,4 +4,4 @@ Banco feito em sqlite para armazenar os dados processados dos usuários
 
 ## Esquema do banco
 
-![My First Board (1)](https://user-images.githubusercontent.com/42501669/140744284-4afd00a6-9fb6-496f-85d3-9fe3309568c7.jpg)
+![image](https://user-images.githubusercontent.com/42501669/140744339-3317207c-12f9-4706-bf5f-cf7fed7fdbc5.png)
