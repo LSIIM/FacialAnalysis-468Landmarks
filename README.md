@@ -24,43 +24,43 @@ O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de c
 # Dados
 
 Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que segue
-
-/processed </br>
-|- db.sqlite (Banco de dados com todos os dados processados e agregados) </br>
+.
+├── db.sqlite (Banco de dados com todos os dados processados e agregados) </br>
+├── /processed </br>
 | </br>
-|-/face_points </br>
-| | </br>
-| |-/[id_expressão] </br>
-| | </br>
-| | |-/[id_pessoa] </br>
-| | | | </br>
-| | | |- positions.csv </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-line_1.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-line_2.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-line_2.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-triangles_1.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-triangles_2.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-triangles_2.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-line_mean.png </br>
-| | | |- [id_pessoa]-[id_expressão]\mask-triangles_mean.png </br>
+│ ├── /face_points </br>
+│ | | </br>
+│ | ├── /[id_expressão] </br>
+│ | | |</br>
+│ | | ├── /[id_pessoa] </br>
+│ | | | |</br>
+│ | | | ├── positions.csv </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-line_1.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-line_2.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-line_2.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-triangles_1.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-line_mean.png </br>
+│ | | | ├── [id_pessoa]-[id_expressão]\mask-triangles_mean.png </br>
 | </br>
-|-/pattern_analysis </br>
-| | </br>
-| |-/[id_pessoa] </br>
-| | </br>
-| | |- 0-x.csv </br>
-| | |- 1-x.csv </br>
-| | |- 2-x.csv </br>
-| | |- 3-x.csv </br>
-| | |- 4-x.csv </br>
-| | |- 5-x.csv </br>
-| | |- 6-x.csv </br>
-| | |- 7-x.csv </br>
-| | |- 0-x.png </br>
-| | |- 1-x.png </br>
-| | |- 2-x.png </br>
-| | |- 3-x.png </br>
-| | |- 4-x.png </br>
-| | |- 5-x.png </br>
-| | |- 6-x.png </br>
-| | |- 7-x.png </br>
+│ ├── /pattern_analysis </br>
+│ | | </br>
+│ | ├── /[id_pessoa] </br>
+│ | | |</br>
+│ | | ├── 0-x.csv </br>
+│ | | ├── 1-x.csv </br>
+│ | | ├── 2-x.csv </br>
+│ | | ├── 3-x.csv </br>
+│ | | ├── 4-x.csv </br>
+│ | | ├── 5-x.csv </br>
+│ | | ├── 6-x.csv </br>
+│ | | ├── 7-x.csv </br>
+│ | | ├── 0-x.png </br>
+│ | | ├── 1-x.png </br>
+│ | | ├── 2-x.png </br>
+│ | | ├── 3-x.png </br>
+│ | | ├── 4-x.png </br>
+│ | | ├── 5-x.png </br>
+│ | | ├── 6-x.png </br>
+│ | | ├── 7-x.png </br>
