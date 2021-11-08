@@ -28,7 +28,10 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 ```
 
 .
-├── db.sqlite (Banco de dados com todos os dados processados e agregados)
+├── database
+|   |
+|   ├── db.sqlite (Banco de dados com todos os dados processados e agregados)
+|
 ├── /processed
 |
 │   ├── /face_points
