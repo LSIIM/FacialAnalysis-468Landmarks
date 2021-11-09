@@ -1,5 +1,5 @@
 import cv2
-import mediapipe
+import mediapipe as mp
 import numpy as np
 
 
@@ -29,14 +29,14 @@ class FaceMashDetector():
         self._img = image
 
     def findFaceMesh(self):
-        imgRGB = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
+        imgRGB = cv2.cvtColor(self._img, cv2.COLOR_BGR2RGB)
         results = self._faceMesh.process(imgRGB)
         self._lms = []
         if results.multi_face_landmarks:
             for faceLms in results.multi_face_landmarks:
                 face = []
                 for lm in faceLms.landmark:
-                    ih, iw, ic = self.img.shape
+                    ih, iw, ic = self._img.shape
                     x, y = int(lm.x*iw), int(lm.y*ih)
                     face.append((x, y))
                 self._lms.append(face)
