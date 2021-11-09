@@ -97,7 +97,8 @@ class FaceAdjuster():
 
     # https://github.com/ManuelTS/augmentedFaceMeshIndices/blob/master/Left_Eye_shading.jpg
     def _find_face_border(self):
-        return self._face_top(), self._face_left(), self._face_bottom(), self._face_right()
+        margin = 20
+        return self._face_top()-margin, self._face_left()-margin, self._face_bottom()+margin, self._face_right()+margin
 
     def _find_l_eye_border(self):
         # top,left,bottom,right
