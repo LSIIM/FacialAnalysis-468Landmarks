@@ -31,3 +31,5 @@ Para melhor analisar as imagens posteriormente um padrão será adotado, e ele s
 - As imagens serão recortadas em um quadrado, deixando apenas o rosto centralizado. com os pontos XXX (Queixo) e XXX (Testa) sempre no mesmo pixel para termos o mesmo alinhamento em todas as imagens
 - A imagem será redimensionada para possuir 500px x 500px
 - somente então será salva com os dados relativos a imagem no fim deste processo.
+
+![image](https://user-images.githubusercontent.com/42501669/140919974-db400ddb-41a4-4c7f-bd41-c7ad0ad03ba6.png)
