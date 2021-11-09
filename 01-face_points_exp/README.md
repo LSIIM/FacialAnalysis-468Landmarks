@@ -28,7 +28,7 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 Para melhor analisar as imagens posteriormente um padrão será adotado, e ele será o seguinte:
 
 - Todas as imagens serão rotacionadas para que os olhos fiquem sempre na mesma linha
-- As imagens serão recortadas em um quadrado, deixando apenas o rosto centralizado. com os pontos XXX (Queixo) e XXX (Testa) sempre no mesmo pixel para termos o mesmo alinhamento em todas as imagens
+- As imagens serão recortadas em um quadrado, deixando apenas o rosto centralizado. com os pontos 362 (olho direito) e 133 (olho esquerdo) sempre no mesmo pixel para termos o mesmo alinhamento em todas as imagens
 - A imagem será redimensionada para possuir 500px x 500px
 - somente então será salva com os dados relativos a imagem no fim deste processo.
 
