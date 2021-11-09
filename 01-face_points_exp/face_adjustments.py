@@ -56,7 +56,7 @@ class FaceAdjuster():
                 row.append(self._img[j][i])
             cent_img.append(row)
         cent_img = np.array(cent_img)
-        cent_img = self._image_resize(cent_img, height=550)
+        cent_img = self._image_resize(cent_img, height=500)
         return cent_img
     # private mathods
 # ------------------------------------------------------
