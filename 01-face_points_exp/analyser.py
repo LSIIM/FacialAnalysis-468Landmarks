@@ -13,6 +13,10 @@ def analyseFace(image, name):
 
     lms = meshed.getLms()
 
+    adjuster = FaceAdjuster(image, lms[0])
+    eyes_cent_img = adjuster.alignEyes()
+    cv2.imshow("Olhos", eyes_cent_img)
+    cv2.waitKey(0)
     return True
 
 
