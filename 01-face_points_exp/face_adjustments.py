@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+from scipy import ndimage
+import math
 
 
 class FaceAdjuster():
@@ -8,8 +10,23 @@ class FaceAdjuster():
         self._lms = lms
 
     def alignEyes(self):
+
+        xR, yR = self._lms[362]
+        xL, yL = self._lms[133]
+
+        rotated = ndimage.rotate(self._img, math.atan(
+            (yR-yL)/(xR-xL))*180/3.14)
+        drawImg = self._img.copy()
+
+        cv2.putText(drawImg, ".", (xR, yR), cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
+
+        cv2.putText(drawImg, ".", (xL, yL), cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
+        #cv2.imshow("img", drawImg)
+
         top, left, bottom, right = self._find_face_border()
-        eyes_cent_img = []
+        cent_img = []
         print(top, left, bottom, right)
         if top < 0:
             top = 0
@@ -23,9 +40,9 @@ class FaceAdjuster():
                 if(i >= self._img.shape[1]):
                     continue
                 row.append(self._img[j][i])
-            eyes_cent_img.append(row)
-        eyes_cent_img = np.array(eyes_cent_img)
-        return eyes_cent_img
+            cent_img.append(row)
+        cent_img = np.array(cent_img)
+        return cent_img
 
     # The 2 paramiters lms are the 2 points of the face that will
     # be used to center the face and align it
@@ -81,3 +98,11 @@ class FaceAdjuster():
     # https://github.com/ManuelTS/augmentedFaceMeshIndices/blob/master/Left_Eye_shading.jpg
     def _find_face_border(self):
         return self._face_top(), self._face_left(), self._face_bottom(), self._face_right()
+
+    def _find_l_eye_border(self):
+        # top,left,bottom,right
+        return self._lms[27][1], self._lms[130][0], self._lms[23][1], self._lms[133][0]
+
+    def _find_r_eye_border(self):
+        # top,left,bottom,right
+        return self._lms[386][1], self._lms[362][0], self._lms[253][1], self._lms[263][0]

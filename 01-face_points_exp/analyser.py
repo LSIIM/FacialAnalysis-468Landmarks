@@ -15,6 +15,7 @@ def analyseFace(image, name):
 
     adjuster = FaceAdjuster(image, lms[0])
     eyes_cent_img = adjuster.alignEyes()
+    cv2.imshow("orig", image)
     cv2.imshow("Olhos", eyes_cent_img)
     cv2.waitKey(0)
     return True

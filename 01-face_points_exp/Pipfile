@@ -9,6 +9,7 @@ numpy = "*"
 mediapipe = "*"
 tqdm = "*"
 pandas = "*"
+scipy = "*"
 
 [dev-packages]
 
