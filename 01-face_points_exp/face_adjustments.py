@@ -48,11 +48,17 @@ class FaceAdjuster():
     # be used to center the face and align it
 
     def alignFace(self):
+        # deixa o rosto sempre na mesma posição
+        rows, cols = self._img.shape[:2]
         pos = self._lms[10]
-        cols, rows = self._img.shape[:2]
+        distX = int(cols/2)-int(pos[0])
+        distY = 25-int(pos[1])
         M = np.float32(
-            [[1, 0, int(cols/2)-int(pos[0])], [0, 1, 25-int(pos[1])]])
+            [[1, 0, distX], [0, 1, distY]])
         dst = cv2.warpAffine(self._img, M, (cols, rows))
+
+        for i, lm in enumerate(self._lms):
+            self._lms[i] = [self._lms[i][0]+distX, self._lms[i][1]+distY]
 
         return dst
 

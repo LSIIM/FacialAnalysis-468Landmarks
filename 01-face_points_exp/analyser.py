@@ -35,10 +35,10 @@ def fixFacePosition(image):
     cv2.waitKey(0)
     # ---------------------------------
 
-    adjuster = FaceAdjuster(image.copy(), lms.copy())
-    eyes_cent_img = adjuster.alignEyes()
+    adjuster1 = FaceAdjuster(image.copy(), lms.copy())
+    eyes_cent_img = adjuster1.alignEyes()
 
-    nlms = adjuster._lms
+    nlms = adjuster1._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
@@ -49,6 +49,23 @@ def fixFacePosition(image):
                     0.8, (255, 0, 0), 1)
 
     cv2.imshow("img", eyes_cent_img)
+    cv2.waitKey(0)
+    # ---------------------------------
+
+    adjuster2 = FaceAdjuster(eyes_cent_img.copy(), nlms.copy())
+    face_fix_img = adjuster2.alignFace()
+
+    nlms = adjuster2._lms
+    print("------------------------------------------------------------")
+    # -------- Teste -----------------
+    # cv2.imshow("orig", image)
+    print("Eyes")
+
+    for i in range(len(lms)):
+        cv2.putText(face_fix_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (255, 0, 0), 1)
+
+    cv2.imshow("img", face_fix_img)
     cv2.waitKey(0)
     # ---------------------------------
 
