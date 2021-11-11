@@ -69,6 +69,23 @@ def fixFacePosition(image):
     cv2.waitKey(0)
     # ---------------------------------
 
+    adjuster3 = FaceAdjuster(face_fix_img.copy(), nlms.copy())
+    crop_img = adjuster3.faceCrop()
+
+    nlms = adjuster3._lms
+    print("------------------------------------------------------------")
+    # -------- Teste -----------------
+    # cv2.imshow("orig", image)
+    print("Eyes")
+
+    for i in range(len(lms)):
+        cv2.putText(crop_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (255, 0, 0), 1)
+
+    cv2.imshow("img", crop_img)
+    cv2.waitKey(0)
+    # ---------------------------------
+
     return eyes_cent_img
 
 
