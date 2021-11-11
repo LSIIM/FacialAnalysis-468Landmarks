@@ -20,9 +20,9 @@ class FaceAdjuster():
             (yR-yL), (xR-xL))
         rotated = ndimage.rotate(self._img, angle*180/pi, reshape=False)
 
-        print((yR-yL)/(xR-xL))  # tangente
-        print(math.atan2((yR-yL), (xR-xL)))  # radianos
-        print(math.atan2((yR-yL), (xR-xL))*180/pi)  # graus
+        # print((yR-yL)/(xR-xL))  # tangente
+        # print(math.atan2((yR-yL), (xR-xL)))  # radianos
+        # print(math.atan2((yR-yL), (xR-xL))*180/pi)  # graus
         for i, lm in enumerate(self._lms):
             dy = ((row/2)-(lm[1]))
             dx = (-(col/2)+lm[0])
@@ -70,7 +70,7 @@ class FaceAdjuster():
         rows, cols = self._img.shape[:2]
         top, left, bottom, right = self._find_face_border()
         cent_img = []
-        print(top, left, bottom, right)
+        #print(top, left, bottom, right)
         if top < 0:
             top = 0
         if left < 0:
@@ -88,15 +88,15 @@ class FaceAdjuster():
         cent_img = np.array(cent_img)
 
         size = self._lms[152][1]-self._lms[10][1]
-        propsize = 250/size
-        print("Size: ", size)
-        print("Popsize: ", propsize)
+        propsize = 300/size
+        #print("Size: ", size)
+        #print("Popsize: ", propsize)
         prop = cent_img.shape[0]/int(cent_img.shape[0]*propsize)
         cent_img = self._image_resize(
             cent_img, height=int(cent_img.shape[0]*propsize))
 
-        print("SHAPE: ", self._img.shape[:2])
-        print("PROP: ", prop)
+        #print("SHAPE: ", self._img.shape[:2])
+        #print("PROP: ", prop)
         for i, lm in enumerate(self._lms):
             nx = int((self._lms[i][0]-left) / prop)
             ny = int((self._lms[i][1]-top)/prop)
@@ -106,23 +106,29 @@ class FaceAdjuster():
     # private mathods
 
     def fixImageSizeWitBorders(self):
-        height = 500
-        width = 500
+        height = 600
+        width = 600
         row, col = self._img.shape[:2]
-        print("dfghj ", (row, col))
+        #print("dfghj ", (row, col))
         hdif = height-row
         cdif = width-col
-        print(self._img[12][12])
+        # print(self._img[12][12])
 
-        border = cv2.copyMakeBorder(
-            self._img,
-            top=0,
-            bottom=int(hdif/2),
-            left=int(cdif/2),
-            right=int(cdif/2),
-            borderType=cv2.BORDER_CONSTANT,
-            value=[0, 0, 0]
-        )
+        try:
+            border = cv2.copyMakeBorder(
+                self._img,
+                top=0,
+                bottom=int(hdif/2),
+                left=int(cdif/2),
+                right=int(cdif/2),
+                borderType=cv2.BORDER_CONSTANT,
+                value=[0, 0, 0]
+            )
+        except:
+            print("Erro no tamanho: ", (row, col))
+            cv2.imshow("Erro", self._img)
+            cv2.waitKey(0)
+            return
         for i, lm in enumerate(self._lms):
             nx = int((self._lms[i][0]+(cdif/2)))
             ny = self._lms[i][1]
