@@ -39,8 +39,11 @@ class FaceAdjuster():
             newposY = r * math.sin((old_angle+angle))
 
             self._lms[i] = [int(newposX+(col/2)), int(-newposY + (row/2))]
-
+        self._img = rotated
         return rotated
+
+    def getImg(self):
+        return self._img
 
     def getLms(self):
         return self._lms
@@ -59,6 +62,7 @@ class FaceAdjuster():
 
         for i, lm in enumerate(self._lms):
             self._lms[i] = [self._lms[i][0]+distX, self._lms[i][1]+distY]
+        self._img = dst
 
         return dst
 
@@ -89,12 +93,10 @@ class FaceAdjuster():
         print("SHAPE: ", self._img.shape[:2])
         print("PROP: ", prop)
         for i, lm in enumerate(self._lms):
-            print(self._lms[i])
             nx = int((self._lms[i][0]-left) / prop)
             ny = int((self._lms[i][1]-top)/prop)
             self._lms[i] = [nx, ny]
-            print(self._lms[i])
-            print()
+        self._img = cent_img
         return cent_img
     # private mathods
 # ------------------------------------------------------

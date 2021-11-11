@@ -11,8 +11,7 @@ def fixFacePosition(image):
     print(image.shape)
     print((int(image.shape[0]/2), int(image.shape[1]/2)))
     image = cv2.resize(image, (int(image.shape[1]/2), int(image.shape[0]/2)))
-    cv2.imshow("img", image)
-    cv2.waitKey(0)
+
     meshed = FaceMashDetector(image=image)
     if(not meshed.findFaceMesh()):
         print("No faces")
@@ -20,74 +19,29 @@ def fixFacePosition(image):
 
     lms = meshed.getLms()[0]
 
-    # -------- Teste -----------------
-    # cv2.imshow("orig", image)
-    di = image.copy()
-    print("Eyes")
-
-    for i in range(len(lms)):
-        cv2.putText(di, ".", lms[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (0, 255, 0), 1)
-
-    cv2.imshow("img", di)
-    cv2.waitKey(0)
-    # ---------------------------------
-
-    adjuster1 = FaceAdjuster(image.copy(), lms.copy())
-    eyes_cent_img = adjuster1.alignEyes()
-
-    nlms1 = adjuster1._lms
+    # --------------------------------------------------------------------------
+    adjuster = FaceAdjuster(image.copy(), lms.copy())
+    eyes_cent_img = adjuster.alignEyes()
+    face_fix_img = adjuster.alignFace()
+    crop_img = adjuster.faceCrop()
+    face_fix_img2 = adjuster.alignFace()
+    nlms = adjuster._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
-    di = eyes_cent_img.copy()
-    print("Eyes")
-
-    for i in range(len(nlms1)):
-        cv2.putText(di, ".", nlms1[i], cv2.FONT_HERSHEY_PLAIN,
+    di = face_fix_img2.copy()
+    print("Crop")
+    print(nlms[10])
+    print(nlms[152][1]-nlms[10][1])
+    for i in range(len(nlms)):
+        cv2.putText(di, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
                     0.8, (0, 255, 0), 1)
 
     cv2.imshow("img", di)
     cv2.waitKey(0)
     # ---------------------------------
 
-    adjuster2 = FaceAdjuster(eyes_cent_img.copy(), nlms1.copy())
-    face_fix_img = adjuster2.alignFace()
-
-    nlms2 = adjuster2._lms
-    print("------------------------------------------------------------")
-    # -------- Teste -----------------
-    # cv2.imshow("orig", image)
-    di = face_fix_img.copy()
-    print("Eyes")
-
-    for i in range(len(nlms2)):
-        cv2.putText(di, ".", nlms2[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (0, 255, 0), 1)
-
-    cv2.imshow("img", di)
-    cv2.waitKey(0)
-    # ---------------------------------
-
-    adjuster3 = FaceAdjuster(face_fix_img.copy(), nlms2.copy())
-    crop_img = adjuster3.faceCrop()
-
-    nlms3 = adjuster3._lms
-    print("------------------------------------------------------------")
-    # -------- Teste -----------------
-    # cv2.imshow("orig", image)
-    di = crop_img.copy()
-    print("Eyes")
-
-    for i in range(len(nlms3)):
-        cv2.putText(di, ".", nlms3[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (0, 255, 0), 1)
-
-    cv2.imshow("img", di)
-    cv2.waitKey(0)
-    # ---------------------------------
-
-    return eyes_cent_img
+    return face_fix_img2
 
 
 def analyseFace(image, name):
