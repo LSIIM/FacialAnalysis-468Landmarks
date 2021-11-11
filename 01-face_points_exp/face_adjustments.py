@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from numpy.core.fromnumeric import resize
+from numpy.core.fromnumeric import resize, shape
 from scipy import ndimage
 import math
 pi = 3.14159265359
@@ -104,6 +104,31 @@ class FaceAdjuster():
         self._img = cent_img
         return cent_img
     # private mathods
+
+    def fixImageSizeWitBorders(self):
+        height = 500
+        width = 500
+        row, col = self._img.shape[:2]
+        print("dfghj ", (row, col))
+        hdif = height-row
+        cdif = width-col
+        print(self._img[12][12])
+
+        border = cv2.copyMakeBorder(
+            self._img,
+            top=0,
+            bottom=int(hdif/2),
+            left=int(cdif/2),
+            right=int(cdif/2),
+            borderType=cv2.BORDER_CONSTANT,
+            value=[0, 0, 0]
+        )
+        for i, lm in enumerate(self._lms):
+            nx = int((self._lms[i][0]+(cdif/2)))
+            ny = self._lms[i][1]
+            self._lms[i] = [nx, ny]
+        self._img = border
+        return border
 # ------------------------------------------------------
 
     def _image_resize(self, img, width=None, height=None, inter=cv2.INTER_AREA):

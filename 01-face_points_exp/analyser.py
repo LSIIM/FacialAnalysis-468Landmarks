@@ -25,11 +25,12 @@ def fixFacePosition(image):
     face_fix_img = adjuster.alignFace()
     crop_img = adjuster.faceCrop()
     face_fix_img2 = adjuster.alignFace()
+    border_img = adjuster.fixImageSizeWitBorders()
     nlms = adjuster._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
-    di = face_fix_img2.copy()
+    di = border_img.copy()
     print("Crop")
     print(nlms[10])
     print(nlms[152][1]-nlms[10][1])
@@ -41,7 +42,7 @@ def fixFacePosition(image):
     cv2.waitKey(0)
     # ---------------------------------
 
-    return face_fix_img2
+    return border_img
 
 
 def analyseFace(image, name):
