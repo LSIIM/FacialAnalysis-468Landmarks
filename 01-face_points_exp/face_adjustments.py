@@ -66,12 +66,12 @@ class FaceAdjuster():
         rows, cols = self._img.shape[:2]
         top, left, bottom, right = self._find_face_border()
         cent_img = []
-        prop = 500/rows
         print(top, left, bottom, right)
         if top < 0:
             top = 0
         if left < 0:
             left = 0
+
         for j in range(top, bottom):
             row = []
             if(j >= self._img.shape[0]):
@@ -82,10 +82,19 @@ class FaceAdjuster():
                 row.append(self._img[j][i])
             cent_img.append(row)
         cent_img = np.array(cent_img)
+
+        prop = cent_img.shape[0]/500
         cent_img = self._image_resize(cent_img, height=500)
+
+        print("SHAPE: ", self._img.shape[:2])
+        print("PROP: ", prop)
         for i, lm in enumerate(self._lms):
-            self._lms[i] = [int((self._lms[i][0]-top)/(cols*prop)),
-                            int((self._lms[i][1]-left)/(rows*prop))]
+            print(self._lms[i])
+            nx = int((self._lms[i][0]-left) / prop)
+            ny = int((self._lms[i][1]-top)/prop)
+            self._lms[i] = [nx, ny]
+            print(self._lms[i])
+            print()
         return cent_img
     # private mathods
 # ------------------------------------------------------

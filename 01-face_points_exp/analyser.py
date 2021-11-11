@@ -24,9 +24,7 @@ def fixFacePosition(image):
     # cv2.imshow("orig", image)
     di = image.copy()
     print("Eyes")
-    print(int(1000*math.cos(0)), int(1000*math.sin(90*3.14159265359/180)))
-    cv2.putText(di, ".", (int(1000*math.cos(0)), int(1000*math.sin(90*3.14/180))), cv2.FONT_HERSHEY_PLAIN,
-                8, (255, 255, 0), 5)
+
     for i in range(len(lms)):
         cv2.putText(di, ".", lms[i], cv2.FONT_HERSHEY_PLAIN,
                     0.8, (0, 255, 0), 1)
@@ -38,51 +36,54 @@ def fixFacePosition(image):
     adjuster1 = FaceAdjuster(image.copy(), lms.copy())
     eyes_cent_img = adjuster1.alignEyes()
 
-    nlms = adjuster1._lms
+    nlms1 = adjuster1._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
+    di = eyes_cent_img.copy()
     print("Eyes")
 
-    for i in range(len(lms)):
-        cv2.putText(eyes_cent_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (255, 0, 0), 1)
+    for i in range(len(nlms1)):
+        cv2.putText(di, ".", nlms1[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
 
-    cv2.imshow("img", eyes_cent_img)
+    cv2.imshow("img", di)
     cv2.waitKey(0)
     # ---------------------------------
 
-    adjuster2 = FaceAdjuster(eyes_cent_img.copy(), nlms.copy())
+    adjuster2 = FaceAdjuster(eyes_cent_img.copy(), nlms1.copy())
     face_fix_img = adjuster2.alignFace()
 
-    nlms = adjuster2._lms
+    nlms2 = adjuster2._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
+    di = face_fix_img.copy()
     print("Eyes")
 
-    for i in range(len(lms)):
-        cv2.putText(face_fix_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (255, 0, 0), 1)
+    for i in range(len(nlms2)):
+        cv2.putText(di, ".", nlms2[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
 
-    cv2.imshow("img", face_fix_img)
+    cv2.imshow("img", di)
     cv2.waitKey(0)
     # ---------------------------------
 
-    adjuster3 = FaceAdjuster(face_fix_img.copy(), nlms.copy())
+    adjuster3 = FaceAdjuster(face_fix_img.copy(), nlms2.copy())
     crop_img = adjuster3.faceCrop()
 
-    nlms = adjuster3._lms
+    nlms3 = adjuster3._lms
     print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
+    di = crop_img.copy()
     print("Eyes")
 
-    for i in range(len(lms)):
-        cv2.putText(crop_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (255, 0, 0), 1)
+    for i in range(len(nlms3)):
+        cv2.putText(di, ".", nlms3[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
 
-    cv2.imshow("img", crop_img)
+    cv2.imshow("img", di)
     cv2.waitKey(0)
     # ---------------------------------
 
