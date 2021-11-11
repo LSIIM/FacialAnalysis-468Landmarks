@@ -87,8 +87,13 @@ class FaceAdjuster():
             cent_img.append(row)
         cent_img = np.array(cent_img)
 
-        prop = cent_img.shape[0]/500
-        cent_img = self._image_resize(cent_img, height=500)
+        size = self._lms[152][1]-self._lms[10][1]
+        propsize = 250/size
+        print("Size: ", size)
+        print("Popsize: ", propsize)
+        prop = cent_img.shape[0]/int(cent_img.shape[0]*propsize)
+        cent_img = self._image_resize(
+            cent_img, height=int(cent_img.shape[0]*propsize))
 
         print("SHAPE: ", self._img.shape[:2])
         print("PROP: ", prop)
