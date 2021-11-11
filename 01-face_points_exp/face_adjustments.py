@@ -1,7 +1,9 @@
 import cv2
 import numpy as np
+from numpy.core.fromnumeric import resize
 from scipy import ndimage
 import math
+pi = 3.14159265359
 
 
 class FaceAdjuster():
@@ -13,27 +15,43 @@ class FaceAdjuster():
 
         xR, yR = self._lms[362]
         xL, yL = self._lms[133]
-        rotated = ndimage.rotate(self._img, math.atan(
-            (yR-yL)/(xR-xL))*180/3.14)
+        row, col = self._img.shape[:2]
+        angle = math.atan2(
+            (yR-yL), (xR-xL))
+        rotated = ndimage.rotate(self._img, angle*180/pi, reshape=False)
 
-        drawImg = self._img.copy()
+        print((yR-yL)/(xR-xL))  # tangente
+        print(math.atan2((yR-yL), (xR-xL)))  # radianos
+        print(math.atan2((yR-yL), (xR-xL))*180/pi)  # graus
+        for i, lm in enumerate(self._lms):
+            dy = ((row/2)-(lm[1]))
+            dx = (-(col/2)+lm[0])
 
-        cv2.putText(drawImg, ".", (xR, yR), cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (0, 255, 0), 1)
+            #print("shift: ", angle)
+            old_angle = math.atan2(
+                dy, dx)
 
-        cv2.putText(drawImg, ".", (xL, yL), cv2.FONT_HERSHEY_PLAIN,
-                    0.8, (0, 255, 0), 1)
-        # cv2.imshow("img", drawImg)
+            #print("actual: ", old_angle)
+            #print(self._lms[i], (dx, dy))
+
+            r = math.sqrt(dy*dy + dx*dx)
+            newposX = r * math.cos((old_angle+angle))
+            newposY = r * math.sin((old_angle+angle))
+
+            self._lms[i] = [int(newposX+(col/2)), int(-newposY + (row/2))]
 
         return rotated
 
+    def getLms(self):
+        return self._lms
     # The 2 paramiters lms are the 2 points of the face that will
     # be used to center the face and align it
+
     def alignFace(self):
         pos = self._lms[10]
         cols, rows = self._img.shape[:2]
         M = np.float32(
-            [[1, 0, int(cols/2)-int(pos[0])], [0, 1, 100-int(pos[1])]])
+            [[1, 0, int(cols/2)-int(pos[0])], [0, 1, 25-int(pos[1])]])
         dst = cv2.warpAffine(self._img, M, (cols, rows))
 
         return dst
@@ -124,7 +142,7 @@ class FaceAdjuster():
 
     # https://github.com/ManuelTS/augmentedFaceMeshIndices/blob/master/Left_Eye_shading.jpg
     def _find_face_border(self):
-        margin = 20
+        margin = 60
         return self._face_top()-margin, self._face_left()-margin, self._face_bottom()+margin, self._face_right()+margin
 
     def _find_l_eye_border(self):

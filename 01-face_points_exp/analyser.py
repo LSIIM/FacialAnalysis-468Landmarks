@@ -3,75 +3,68 @@ from face_mash import FaceMashDetector
 import os
 import cv2
 import numpy as np
-
+import math
 DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset"
 
 
 def fixFacePosition(image):
-    meshed_orig = FaceMashDetector(image=image)
-    if(not meshed_orig.findFaceMesh()):
-        return False
-
-    lms_orig = meshed_orig.getLms()
-
-    adjuster = FaceAdjuster(image, lms_orig[0])
-    eyes_cent_img = adjuster.alignEyes()
-
-    meshed_forehead = FaceMashDetector(image=eyes_cent_img)
-    if(not meshed_forehead.findFaceMesh()):
-        return False
-
-    lms_forehead = meshed_forehead.getLms()
-    if(lms_forehead == []):
-        print("Erro, nenhum rosto detectado")
+    print(image.shape)
+    print((int(image.shape[0]/2), int(image.shape[1]/2)))
+    image = cv2.resize(image, (int(image.shape[1]/2), int(image.shape[0]/2)))
+    cv2.imshow("img", image)
+    cv2.waitKey(0)
+    meshed = FaceMashDetector(image=image)
+    if(not meshed.findFaceMesh()):
+        print("No faces")
         return None
-    else:
-        lms_forehead = lms_forehead[0]
-    adjuster = FaceAdjuster(eyes_cent_img, lms_forehead)
-    eyes_forehead_fix = adjuster.alignFace()
 
-    meshed_crop = FaceMashDetector(image=eyes_forehead_fix)
-    if(not meshed_crop.findFaceMesh()):
-        return False
-
-    lms_crop = meshed_crop.getLms()
-    if(lms_crop == []):
-        print("Erro, nenhum rosto detectado")
-        return None
-    else:
-        lms_crop = lms_crop[0]
-    adjuster = FaceAdjuster(eyes_forehead_fix, lms_crop)
-    crop_image = adjuster.faceCrop()
-
-    meshed_final = FaceMashDetector(image=crop_image)
-    if(not meshed_final.findFaceMesh()):
-        return False
-
-    lms_final = meshed_final.getLms()
-    if(lms_final == []):
-        print("Erro, nenhum rosto detectado")
-        return None
-    else:
-        lms_final = lms_final[0]
-    print(lms_final[10])
+    lms = meshed.getLms()[0]
 
     # -------- Teste -----------------
-    #cv2.imshow("orig", image)
-    cv2.imshow("crop", crop_image)
+    # cv2.imshow("orig", image)
+    di = image.copy()
+    print("Eyes")
+    print(int(1000*math.cos(0)), int(1000*math.sin(90*3.14159265359/180)))
+    cv2.putText(di, ".", (int(1000*math.cos(0)), int(1000*math.sin(90*3.14/180))), cv2.FONT_HERSHEY_PLAIN,
+                8, (255, 255, 0), 5)
+    for i in range(len(lms)):
+        cv2.putText(di, ".", lms[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (0, 255, 0), 1)
+
+    cv2.imshow("img", di)
     cv2.waitKey(0)
     # ---------------------------------
+
+    adjuster = FaceAdjuster(image.copy(), lms.copy())
+    eyes_cent_img = adjuster.alignEyes()
+
+    nlms = adjuster._lms
+    print("------------------------------------------------------------")
+    # -------- Teste -----------------
+    # cv2.imshow("orig", image)
+    print("Eyes")
+
+    for i in range(len(lms)):
+        cv2.putText(eyes_cent_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
+                    0.8, (255, 0, 0), 1)
+
+    cv2.imshow("img", eyes_cent_img)
+    cv2.waitKey(0)
+    # ---------------------------------
+
     return eyes_cent_img
 
 
 def analyseFace(image, name):
     fixed_image = fixFacePosition(image)
 
+    print("fim")
     return True
 
 
 if __name__ == "__main__":
     print("Começando analise")
-    test_path = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset\00\00\04438"
+    test_path = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset\01\00\04435"
     fotos = os.listdir(test_path)
     path = test_path + "/"+fotos[1]
 
