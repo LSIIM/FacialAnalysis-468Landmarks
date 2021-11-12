@@ -10,6 +10,7 @@ mediapipe = "*"
 tqdm = "*"
 pandas = "*"
 scipy = "*"
+plotly = "*"
 
 [dev-packages]
 

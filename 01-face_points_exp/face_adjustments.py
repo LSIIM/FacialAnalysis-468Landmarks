@@ -88,7 +88,7 @@ class FaceAdjuster():
         cent_img = np.array(cent_img)
 
         size = self._lms[152][1]-self._lms[10][1]
-        propsize = 300/size
+        propsize = 400/size
         #print("Size: ", size)
         #print("Popsize: ", propsize)
         prop = cent_img.shape[0]/int(cent_img.shape[0]*propsize)
@@ -200,7 +200,7 @@ class FaceAdjuster():
 
     # https://github.com/ManuelTS/augmentedFaceMeshIndices/blob/master/Left_Eye_shading.jpg
     def _find_face_border(self):
-        margin = 60
+        margin = 25
         return self._face_top()-margin, self._face_left()-margin, self._face_bottom()+margin, self._face_right()+margin
 
     def _find_l_eye_border(self):
