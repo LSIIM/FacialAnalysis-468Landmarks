@@ -16,7 +16,7 @@ def analyseFace(image):
     # print(image.shape)
     #print((int(image.shape[0]/2), int(image.shape[1]/2)))
     row, col = image.shape[:2]
-    img_new_width = 900
+    img_new_width = 600
     rt = img_new_width/col
     image = cv2.resize(image, (img_new_width, int(row*rt)))
 
@@ -25,7 +25,7 @@ def analyseFace(image):
         print("No faces")
         cv2.imshow("Erro", image)
         cv2.waitKey(0)
-        return None, []
+        return []
 
     lms = meshed.getLms()[0]
 
@@ -35,8 +35,8 @@ def analyseFace(image):
     adjuster.alignFace()
     adjuster.faceCrop()
     adjuster.alignFace()
-    border_img = adjuster.fixImageSizeWitBorders()
-    nlms = adjuster._lms
+    adjuster.fixImageSizeWitBorders()
+
     # print("------------------------------------------------------------")
     # -------- Teste -----------------
     # cv2.imshow("orig", image)
@@ -51,7 +51,7 @@ def analyseFace(image):
     # cv2.waitKey(1)
     # ---------------------------------
 
-    return border_img, nlms
+    return adjuster.getLms()
 
 
 def analysisProcessHandler():
@@ -82,7 +82,7 @@ def analysisProcessHandler():
                 for pht in photos:
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
 
-                    _, lms = analyseFace(cv2.imread(path))
+                    lms = analyseFace(cv2.imread(path))
                     # print(lms)
                     lm_lists.append(lms)
 
@@ -102,7 +102,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(4):
+    for i in range(2):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
