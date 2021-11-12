@@ -99,7 +99,6 @@ def analysisProcessHandler():
                 except:
                     user
                     continue
-                print(gc.get_stats())
                 photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
                 for pht in photos:
                     df = pd.DataFrame()
@@ -137,7 +136,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(1):
+    for i in range(3):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
