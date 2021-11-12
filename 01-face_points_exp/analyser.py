@@ -1,19 +1,26 @@
 from face_adjustments import FaceAdjuster
 from face_mash import FaceMashDetector
+
+
 import os
 import cv2
 import numpy as np
 import math
 from tqdm import tqdm
+
+import pandas as pd
+
 import plotly.graph_objects as go
 import plotly.express as px
 from multiprocessing import Process
-import pandas as pd
-from memory_profiler import profile
+
+
+import gc
 DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset"
 
 
 def analyseFace(image):
+    gc.collect()
     # print(image.shape)
     #print((int(image.shape[0]/2), int(image.shape[1]/2)))
     row, col = image.shape[:2]
@@ -67,6 +74,7 @@ def analyseFace(image):
     del adjuster._img
     del meshed._img
     del meshed
+
     return nlms, None
 
 
@@ -91,14 +99,14 @@ def analysisProcessHandler():
                 except:
                     user
                     continue
-
+                print(gc.get_stats())
                 photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
-                lm_lists = []
                 for pht in photos:
                     df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
-
                     lms, err = analyseFace(cv2.imread(path))
+
+                    # lida com o erro da analise
                     if(err is not None):
                         df["Error"] = err
                         print("Erro na img " + pht + " do user " +
@@ -107,8 +115,8 @@ def analysisProcessHandler():
                                   "/"+user+"/error-"+pht.split(".")[0]+".csv")
                         continue
                     # print(lms)
-                    lm_lists.append(lms)
 
+                    # salva o resultado num df e coloca num csv
                     x_list = []
                     y_list = []
                     for lm in lms:
@@ -117,22 +125,24 @@ def analysisProcessHandler():
                     df["x"] = np.array(x_list)
                     df["y"] = np.array(y_list)
                     # print(lm)
-
                     df.to_csv("../processed/"+exp+"/"+tp +
                               "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
+
+                    # Teoricamente limpa a memória
                     del df
+                    del gc.garbage[:]
+                    gc.collect()
 
 
 if __name__ == "__main__":
     print("Começando analise")
-    analysisProcessHandler()
-'''processes = []
-for i in range(1):
-    print("Registrando processo paralelo:" + str(i))
-    processes.append(Process(target=analysisProcessHandler))
+    processes = []
+    for i in range(1):
+        print("Registrando processo paralelo:" + str(i))
+        processes.append(Process(target=analysisProcessHandler))
 
-for process in processes:
-    process.start()
+    for process in processes:
+        process.start()
 
-for process in processes:
-    process.join()'''
+    for process in processes:
+        process.join()
