@@ -125,13 +125,14 @@ def analysisProcessHandler():
 
 if __name__ == "__main__":
     print("Começando analise")
-    processes = []
-    for i in range(1):
-        print("Registrando processo paralelo:" + str(i))
-        processes.append(Process(target=analysisProcessHandler))
+    analysisProcessHandler()
+'''processes = []
+for i in range(1):
+    print("Registrando processo paralelo:" + str(i))
+    processes.append(Process(target=analysisProcessHandler))
 
-    for process in processes:
-        process.start()
+for process in processes:
+    process.start()
 
-    for process in processes:
-        process.join()
+for process in processes:
+    process.join()'''
