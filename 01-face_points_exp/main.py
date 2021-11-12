@@ -3,8 +3,9 @@ import numpy as np
 from numpy.core.fromnumeric import shape
 from scipy import ndimage
 import math
+import cv2
 
-pi = 3.14159265359
+'''pi = 3.14159265359
 img = np.zeros(shape=(500, 500, 3))
 cv2.putText(img, "1", (50, 50), cv2.FONT_HERSHEY_PLAIN,
             1, (0, 255, 0), 2)
@@ -17,3 +18,6 @@ angle = 15
 rotated = ndimage.rotate(img, angle, axes=(1, 0))
 cv2.imshow("rot", rotated)
 cv2.waitKey(0)
+'''
+
+print(cv2.__version__)

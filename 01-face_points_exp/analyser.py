@@ -63,7 +63,9 @@ def analyseFace(image):
     # ---------------------------------
     del image
     nlms = adjuster.getLms().copy()
-    del adjuster
+    del adjuster._lms
+    del adjuster._img
+
     return nlms, None
 
 
@@ -90,9 +92,9 @@ def analysisProcessHandler():
                     continue
 
                 photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
-                df = pd.DataFrame()
                 lm_lists = []
                 for pht in photos:
+                    df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
 
                     lms, err = analyseFace(cv2.imread(path))
@@ -117,6 +119,7 @@ def analysisProcessHandler():
 
                     df.to_csv("../processed/"+exp+"/"+tp +
                               "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
+                    del df
 
 
 if __name__ == "__main__":
