@@ -27,10 +27,10 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 
 Para melhor analisar as imagens posteriormente um padrão será adotado, e ele será o seguinte:
 
-- Todas as imagens serão rotacionadas para que os olhos fiquem sempre na mesma linha
-- As imagens serão recortadas em um quadrado, deixando apenas o rosto centralizado. com os pontos 362 (olho direito) e 133 (olho esquerdo) sempre no mesmo pixel para termos o mesmo alinhamento em todas as imagens
-- A imagem será redimensionada para possuir 500px x 500px
-- O ponto 10 dos landmarks deve estar na posição (200,25)
+- Todas as imagens serão rotacionadas para que os olhos fiquem sempre na mesma linha (alignEyes)
+- O ponto 10 é deixado sempre na altura 25 e no centro da imagem, com a distancia entre o ponto 10 e o ponto 152 sendo de 320px (alignFace)
+- A imagem será recortada em um retangulo, deixando apenas o rosto centralizado, com margem de 25px.
+- A imagem será deixada com 600px X 600px sem redimensionar, apenas colocando bordas pretas nas laterais e em baixo para completar o tamanho
 - somente então será salva com os dados relativos a imagem no fim deste processo.
 
 ![image](https://user-images.githubusercontent.com/42501669/140919974-db400ddb-41a4-4c7f-bd41-c7ad0ad03ba6.png)

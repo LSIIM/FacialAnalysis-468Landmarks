@@ -89,7 +89,7 @@ class FaceAdjuster():
         cent_img = np.array(cent_img)
 
         size = self._lms[152][1]-self._lms[10][1]
-        propsize = 400/size
+        propsize = 320/size
         #print("Size: ", size)
         #print("Popsize: ", propsize)
         prop = cent_img.shape[0]/int(cent_img.shape[0]*propsize)
@@ -127,6 +127,9 @@ class FaceAdjuster():
             )
         except:
             print("Erro no tamanho: ", (row, col))
+            for i in range(len(self._lms)):
+                cv2.putText(self._img, ".", self._lms[i], cv2.FONT_HERSHEY_PLAIN,
+                            0.8, (0, 255, 0), 1)
             cv2.imshow("Erro", self._img)
             cv2.waitKey(0)
             self.error = "Erro no tamanho: ", (row, col)

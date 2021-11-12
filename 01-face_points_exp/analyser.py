@@ -17,7 +17,7 @@ def analyseFace(image):
     # print(image.shape)
     #print((int(image.shape[0]/2), int(image.shape[1]/2)))
     row, col = image.shape[:2]
-    img_new_width = 600
+    img_new_width = 1000
     rt = img_new_width/col
     image = cv2.resize(image, (img_new_width, int(row*rt)))
 
@@ -62,7 +62,9 @@ def analyseFace(image):
     # cv2.waitKey(1)
     # ---------------------------------
     del image
-    return adjuster.getLms(), None
+    nlms = adjuster.getLms().copy()
+    del adjuster
+    return nlms, None
 
 
 def analysisProcessHandler():
@@ -94,7 +96,7 @@ def analysisProcessHandler():
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
 
                     lms, err = analyseFace(cv2.imread(path))
-                    if(err):
+                    if(err is not None):
                         df["Error"] = err
                         print("Erro na img " + pht + " do user " +
                               user + " no tipo " + tp + " da exp " + exp)
