@@ -65,7 +65,8 @@ def analyseFace(image):
     nlms = adjuster.getLms().copy()
     del adjuster._lms
     del adjuster._img
-
+    del meshed._img
+    del meshed
     return nlms, None
 
 
@@ -125,7 +126,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(2):
+    for i in range(1):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
