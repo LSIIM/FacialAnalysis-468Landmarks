@@ -9,6 +9,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from multiprocessing import Process
 import pandas as pd
+from memory_profiler import profile
 DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset"
 
 
@@ -25,17 +26,27 @@ def analyseFace(image):
         print("No faces")
         cv2.imshow("Erro", image)
         cv2.waitKey(0)
-        return []
+        return [], "No Faces detected"
 
     lms = meshed.getLms()[0]
 
     # --------------------------------------------------------------------------
     adjuster = FaceAdjuster(image, lms)
-    adjuster.alignEyes()
-    adjuster.alignFace()
-    adjuster.faceCrop()
-    adjuster.alignFace()
-    adjuster.fixImageSizeWitBorders()
+    _, succeed = adjuster.alignEyes()
+    if not succeed:
+        return [], adjuster.error
+    _, succeed = adjuster.alignFace()
+    if not succeed:
+        return [], adjuster.error
+    _, succeed = adjuster.faceCrop()
+    if not succeed:
+        return [], adjuster.error
+    _, succeed = adjuster.alignFace()
+    if not succeed:
+        return [], adjuster.error
+    _, succeed = adjuster.fixImageSizeWitBorders()
+    if not succeed:
+        return [], adjuster.error
 
     # print("------------------------------------------------------------")
     # -------- Teste -----------------
@@ -50,8 +61,8 @@ def analyseFace(image):
     #cv2.imshow("img", border_img)
     # cv2.waitKey(1)
     # ---------------------------------
-
-    return adjuster.getLms()
+    del image
+    return adjuster.getLms(), None
 
 
 def analysisProcessHandler():
@@ -82,7 +93,14 @@ def analysisProcessHandler():
                 for pht in photos:
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
 
-                    lms = analyseFace(cv2.imread(path))
+                    lms, err = analyseFace(cv2.imread(path))
+                    if(err):
+                        df["Error"] = err
+                        print("Erro na img " + pht + " do user " +
+                              user + " no tipo " + tp + " da exp " + exp)
+                        df.to_csv("../processed/"+exp+"/"+tp +
+                                  "/"+user+"/error-"+pht.split(".")[0]+".csv")
+                        continue
                     # print(lms)
                     lm_lists.append(lms)
 

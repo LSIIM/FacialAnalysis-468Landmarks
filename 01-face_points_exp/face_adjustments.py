@@ -10,6 +10,7 @@ class FaceAdjuster():
     def __init__(self, image, lms):
         self._img = image
         self._lms = lms
+        self.error = ""
 
     def alignEyes(self):
 
@@ -40,7 +41,7 @@ class FaceAdjuster():
 
             self._lms[i] = [int(newposX+(col/2)), int(-newposY + (row/2))]
         self._img = rotated
-        return rotated
+        return rotated, True
 
     def getImg(self):
         return self._img
@@ -64,7 +65,7 @@ class FaceAdjuster():
             self._lms[i] = [self._lms[i][0]+distX, self._lms[i][1]+distY]
         self._img = dst
 
-        return dst
+        return dst, True
 
     def faceCrop(self):
         rows, cols = self._img.shape[:2]
@@ -102,7 +103,7 @@ class FaceAdjuster():
             ny = int((self._lms[i][1]-top)/prop)
             self._lms[i] = [nx, ny]
         self._img = cent_img
-        return cent_img
+        return cent_img, True
     # private mathods
 
     def fixImageSizeWitBorders(self):
@@ -128,13 +129,14 @@ class FaceAdjuster():
             print("Erro no tamanho: ", (row, col))
             cv2.imshow("Erro", self._img)
             cv2.waitKey(0)
-            return
+            self.error = "Erro no tamanho: ", (row, col)
+            return None, False
         for i, lm in enumerate(self._lms):
             nx = int((self._lms[i][0]+(cdif/2)))
             ny = self._lms[i][1]
             self._lms[i] = [nx, ny]
         self._img = border
-        return border
+        return border, True
 # ------------------------------------------------------
 
     def _image_resize(self, img, width=None, height=None, inter=cv2.INTER_AREA):
