@@ -16,7 +16,6 @@ DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migm
 
 
 def analyseFace(image, extractor):
-    gc.collect()
     row, col = image.shape[:2]
     img_new_width = 1000
     rt = img_new_width/col
@@ -78,12 +77,8 @@ def analysisProcessHandler():
                 for pht in photos:
                     df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
-                    try:
-                        lms, err = analyseFace(
-                            cv2.imread(path), landmarks_extractor)
-                    except:
-                        print("Erro de memoria")
-                        continue
+                    lms, err = analyseFace(
+                        cv2.imread(path), landmarks_extractor)
 
                     # lida com o erro da analise
                     if(err is not None):
