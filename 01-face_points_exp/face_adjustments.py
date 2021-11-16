@@ -1,3 +1,6 @@
+
+from definitions import *
+
 import cv2
 import numpy as np
 from numpy.core.fromnumeric import resize, shape
@@ -56,7 +59,7 @@ class FaceAdjuster():
         rows, cols = self._img.shape[:2]
         pos = self._lms[10]
         distX = int(cols/2)-int(pos[0])
-        distY = 25-int(pos[1])
+        distY = p10_height-int(pos[1])
         M = np.float32(
             [[1, 0, distX], [0, 1, distY]])
         dst = cv2.warpAffine(self._img, M, (cols, rows))
@@ -89,7 +92,7 @@ class FaceAdjuster():
         cent_img = np.array(cent_img)
 
         size = self._lms[152][1]-self._lms[10][1]
-        propsize = 320/size
+        propsize = face_height/size
         #print("Size: ", size)
         #print("Popsize: ", propsize)
         prop = cent_img.shape[0]/int(cent_img.shape[0]*propsize)
@@ -107,8 +110,8 @@ class FaceAdjuster():
     # private mathods
 
     def fixImageSizeWitBorders(self):
-        height = 600
-        width = 600
+        height = final_image_size_height
+        width = final_image_size_width
         row, col = self._img.shape[:2]
         #print("dfghj ", (row, col))
         hdif = height-row
@@ -205,7 +208,7 @@ class FaceAdjuster():
 
     # https://github.com/ManuelTS/augmentedFaceMeshIndices/blob/master/Left_Eye_shading.jpg
     def _find_face_border(self):
-        margin = 25
+        margin = face_margin
         return self._face_top()-margin, self._face_left()-margin, self._face_bottom()+margin, self._face_right()+margin
 
     def _find_l_eye_border(self):

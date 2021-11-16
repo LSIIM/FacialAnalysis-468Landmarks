@@ -5,7 +5,6 @@ from scipy import ndimage
 import math
 import cv2
 from tqdm import tqdm
-
 print(cv2.__version__)
 for i in tqdm(range(1000000000)):
     img = cv2.imread(

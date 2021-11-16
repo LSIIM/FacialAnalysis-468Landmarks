@@ -1,5 +1,6 @@
 from face_adjustments import FaceAdjuster
 from face_mash import FaceMashDetector
+from definitions import *
 
 
 import os
@@ -17,7 +18,7 @@ DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migm
 
 def analyseFace(image, extractor):
     row, col = image.shape[:2]
-    img_new_width = 1000
+    img_new_width = initial_image_width
     rt = img_new_width/col
     image = cv2.resize(image, (img_new_width, int(row*rt)))
 
