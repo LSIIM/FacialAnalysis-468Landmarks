@@ -18,6 +18,7 @@ for exp in expressions:
                 print("Removendo pasta com numero incorreto de imagens: " +
                       exp+"/"+tp+"/"+user)
                 shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user)
+                continue
             achou = False
             for nm in infos:
                 if(nm.split("-")[0] == "error"):
@@ -26,3 +27,4 @@ for exp in expressions:
             if(achou):
                 print("Removendo pasta com erros: "+exp+"/"+tp+"/"+user)
                 shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user)
+                continue
