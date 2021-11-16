@@ -98,7 +98,7 @@ def analysisProcessHandler():
 
                     # lida com o erro da analise
                     if(err is not None):
-                        df["Error"] = err
+                        df["Error"] = np.array([str(err)])
                         print("Erro na img " + pht + " do user " +
                               user + " no tipo " + tp + " da exp " + exp)
                         df.to_csv("../processed/"+exp+"/"+tp +
