@@ -72,7 +72,12 @@ def analysisProcessHandler():
                 except:
                     user
                     continue
-                photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
+                try:
+                    photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
+                except:
+                    print("\nPasta inacessível: " +
+                          DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
+                    os.rmdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
                 for pht in photos:
                     df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
