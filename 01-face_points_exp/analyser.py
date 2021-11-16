@@ -24,9 +24,7 @@ def analyseFace(image, extractor):
 
     lms = extractor.findFaceMesh(image.copy())
     if(not lms):
-        print("No faces")
-        cv2.imshow("Erro", image)
-        cv2.waitKey(0)
+        print("\nNo faces")
         return [], "No Faces detected"
     lms = lms[0]
     # --------------------------------------------------------------------------
@@ -83,6 +81,8 @@ def analysisProcessHandler():
                             cv2.imread(path), landmarks_extractor)
                     except Exception as exception:
                         err = type(exception).__name__
+                        print()
+                        print(err)
 
                     # lida com o erro da analise
                     if(err is not None):
@@ -110,7 +110,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(5):
+    for i in range(6):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
