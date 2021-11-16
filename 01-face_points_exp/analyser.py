@@ -77,10 +77,17 @@ def analysisProcessHandler():
                 except:
                     print("\nPasta inacessível: " +
                           DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
-                    os.rmdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
+                    continue
                 for pht in photos:
                     df = pd.DataFrame()
-                    path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
+
+                    try:
+                        path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
+                    except:
+                        print("\nPasta inacessível: " +
+                              DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
+                        break
+
                     try:
                         lms, err = analyseFace(
                             cv2.imread(path), landmarks_extractor)
