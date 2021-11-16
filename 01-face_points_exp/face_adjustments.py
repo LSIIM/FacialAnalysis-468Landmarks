@@ -44,10 +44,10 @@ class FaceAdjuster():
         return rotated, True
 
     def getImg(self):
-        return self._img
+        return self._img.copy()
 
     def getLms(self):
-        return self._lms
+        return self._lms.copy()
     # The 2 paramiters lms are the 2 points of the face that will
     # be used to center the face and align it
 

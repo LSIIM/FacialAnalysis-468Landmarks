@@ -4,20 +4,9 @@ from numpy.core.fromnumeric import shape
 from scipy import ndimage
 import math
 import cv2
-
-'''pi = 3.14159265359
-img = np.zeros(shape=(500, 500, 3))
-cv2.putText(img, "1", (50, 50), cv2.FONT_HERSHEY_PLAIN,
-            1, (0, 255, 0), 2)
-cv2.putText(img, "2", (250, 250), cv2.FONT_HERSHEY_PLAIN,
-            1, (0, 255, 0), 2)
-cv2.putText(img, "3", (450, 450), cv2.FONT_HERSHEY_PLAIN,
-            1, (0, 255, 0), 2)
-cv2.imshow("img", img)
-angle = 15
-rotated = ndimage.rotate(img, angle, axes=(1, 0))
-cv2.imshow("rot", rotated)
-cv2.waitKey(0)
-'''
+from tqdm import tqdm
 
 print(cv2.__version__)
+for i in tqdm(range(1000000000)):
+    img = cv2.imread(
+        r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset\00\00\00001\2019-03-14 13_59_51.jpg")

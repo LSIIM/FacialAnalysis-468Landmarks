@@ -2,10 +2,11 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
+from memory_profiler import profile
+
 
 class FaceMashDetector():
     def __init__(self,
-                 image=None,
                  staticImageMode=False,
                  maxNumFaces=1,
                  minDetectionConfidence=0.8,
@@ -25,24 +26,20 @@ class FaceMashDetector():
                                                    min_tracking_confidence=self._minTrackingConfidence)
 
         self._drawSpec = self._mpDraw.DrawingSpec(thickness=1, circle_radius=2)
-        self._lms = []
-        self._img = image
 
-    def findFaceMesh(self):
-        imgRGB = cv2.cvtColor(self._img, cv2.COLOR_BGR2RGB)
+    def findFaceMesh(self, image):
+        imgRGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         results = self._faceMesh.process(imgRGB)
-        self._lms = []
+        lms = []
         if results.multi_face_landmarks:
             for faceLms in results.multi_face_landmarks:
                 face = []
                 for lm in faceLms.landmark:
-                    ih, iw, ic = self._img.shape
+                    ih, iw, ic = image.shape
                     x, y = int(lm.x*iw), int(lm.y*ih)
                     face.append((x, y))
-                self._lms.append(face)
-            return True
-        else:
-            return False
+                lms.append(face)
 
-    def getLms(self):
-        return self._lms
+            return lms
+        else:
+            return None

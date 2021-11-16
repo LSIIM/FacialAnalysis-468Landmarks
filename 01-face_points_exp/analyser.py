@@ -10,35 +10,27 @@ from tqdm import tqdm
 
 import pandas as pd
 
-import plotly.graph_objects as go
-import plotly.express as px
 from multiprocessing import Process
 
-
-import gc
 DATASET_PATH = r"D:\OneDrive - Etec Centro Paula Souza\Academico\UFSC\MIGMA\migma_dataset"
 
 
-def analyseFace(image):
+def analyseFace(image, extractor):
     gc.collect()
-    # print(image.shape)
-    #print((int(image.shape[0]/2), int(image.shape[1]/2)))
     row, col = image.shape[:2]
     img_new_width = 1000
     rt = img_new_width/col
     image = cv2.resize(image, (img_new_width, int(row*rt)))
 
-    meshed = FaceMashDetector(image=image)
-    if(not meshed.findFaceMesh()):
+    lms = extractor.findFaceMesh(image.copy())
+    if(not lms):
         print("No faces")
         cv2.imshow("Erro", image)
         cv2.waitKey(0)
         return [], "No Faces detected"
-
-    lms = meshed.getLms()[0]
-
+    lms = lms[0]
     # --------------------------------------------------------------------------
-    adjuster = FaceAdjuster(image, lms)
+    adjuster = FaceAdjuster(image.copy(), lms)
     _, succeed = adjuster.alignEyes()
     if not succeed:
         return [], adjuster.error
@@ -55,31 +47,14 @@ def analyseFace(image):
     if not succeed:
         return [], adjuster.error
 
-    # print("------------------------------------------------------------")
-    # -------- Teste -----------------
-    # cv2.imshow("orig", image)
-    # print("Crop")
-    # print(nlms[10])
-    # print(nlms[152][1]-nlms[10][1])
-    # for i in range(len(nlms)):
-    #    cv2.putText(border_img, ".", nlms[i], cv2.FONT_HERSHEY_PLAIN,
-    #                0.8, (0, 255, 0), 1)
-
-    #cv2.imshow("img", border_img)
-    # cv2.waitKey(1)
-    # ---------------------------------
-    del image
-    nlms = adjuster.getLms().copy()
-    del adjuster._lms
-    del adjuster._img
-    del meshed._img
-    del meshed
+    nlms = adjuster.getLms()
 
     return nlms, None
 
 
 def analysisProcessHandler():
     expressions = os.listdir(DATASET_PATH)
+    landmarks_extractor = FaceMashDetector()
     for exp in expressions:
         try:
             os.mkdir("../processed/"+exp)
@@ -103,7 +78,12 @@ def analysisProcessHandler():
                 for pht in photos:
                     df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
-                    lms, err = analyseFace(cv2.imread(path))
+                    try:
+                        lms, err = analyseFace(
+                            cv2.imread(path), landmarks_extractor)
+                    except:
+                        print("Erro de memoria")
+                        continue
 
                     # lida com o erro da analise
                     if(err is not None):
@@ -127,16 +107,11 @@ def analysisProcessHandler():
                     df.to_csv("../processed/"+exp+"/"+tp +
                               "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
 
-                    # Teoricamente limpa a memória
-                    del df
-                    del gc.garbage[:]
-                    gc.collect()
-
 
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(3):
+    for i in range(2):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
