@@ -1,4 +1,4 @@
-initial_image_width = 1000
+initial_image_width = 1500
 p10_height = 25
 face_height = 320
 face_margin = 25

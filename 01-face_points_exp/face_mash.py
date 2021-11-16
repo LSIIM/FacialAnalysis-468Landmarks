@@ -9,7 +9,7 @@ class FaceMashDetector():
     def __init__(self,
                  staticImageMode=False,
                  maxNumFaces=1,
-                 minDetectionConfidence=0.6,
+                 minDetectionConfidence=0.7,
                  minTrackingConfidence=0.5):
 
         self._staticImageMode = bool(staticImageMode)

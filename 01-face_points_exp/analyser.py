@@ -78,8 +78,11 @@ def analysisProcessHandler():
                 for pht in photos:
                     df = pd.DataFrame()
                     path = DATASET_PATH + "/"+exp+"/"+tp+"/"+user+"/"+pht
-                    lms, err = analyseFace(
-                        cv2.imread(path), landmarks_extractor)
+                    try:
+                        lms, err = analyseFace(
+                            cv2.imread(path), landmarks_extractor)
+                    except Exception as exception:
+                        err = type(exception).__name__
 
                     # lida com o erro da analise
                     if(err is not None):
@@ -107,7 +110,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(2):
+    for i in range(5):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
