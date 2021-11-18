@@ -17,13 +17,13 @@ DATASET_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\migma_dataset"
 
 
 def analyseFace(image, extractor):
-    print("analyseFace")
+    # print("analyseFace")
     row, col = image.shape[:2]
     img_new_width = initial_image_width
     rt = img_new_width/col
     image = cv2.resize(image, (img_new_width, int(row*rt)))
-    cv2.imshow("image", image)
-    cv2.waitKey(0)
+    #cv2.imshow("image", image)
+    # cv2.waitKey(0)
     lms = extractor.findFaceMesh(image.copy())
     if(not lms):
         print("\nNo faces")
@@ -127,16 +127,17 @@ def analysisProcessHandler():
 
 if __name__ == "__main__":
     print("Começando analise")
+    processes = []
+    for i in range(5):
+        print("Registrando processo paralelo:" + str(i))
+        processes.append(Process(target=analysisProcessHandler))
 
-    landmarks_extractor = FaceMashDetector()
-    handleUser("00", "00", "01235", landmarks_extractor)
-'''processes = []
-for i in range(5):
-    print("Registrando processo paralelo:" + str(i))
-    processes.append(Process(target=analysisProcessHandler))
+    for process in processes:
+        process.start()
 
-for process in processes:
-    process.start()
+    for process in processes:
+        process.join()
 
-for process in processes:
-    process.join()'''
+
+'''landmarks_extractor = FaceMashDetector()
+handleUser("00", "00", "01235", landmarks_extractor)'''
