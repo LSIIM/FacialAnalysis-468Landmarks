@@ -5,9 +5,7 @@ import shutil
 
 delete = input("Desseja deletar as inconsistencias detectadas? s/n   ")
 delete = delete == "s" or delete == "S"
-num_incorreto = 0
-pasta_vazia = 0
-com_erro = 0
+users_list = []
 expressions = os.listdir("../processed")
 for exp in expressions:
     types = os.listdir("../processed/"+exp)
@@ -16,18 +14,15 @@ for exp in expressions:
         for user in users:
             infos = os.listdir("../processed/"+exp+"/"+tp+"/"+user)
             if(len(infos) == 0):
-                print("Removendo pasta vazia: "+exp+"/"+tp+"/"+user)
-                if(delete):
-                    shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user)
-                pasta_vazia += 1
+                if user not in users_list:
+                    users_list.append(
+                        [user, "Pasta vazia no "+exp+"/"+tp+"/"+user])
                 continue
 
             if(len(infos) != 3):
-                print("Removendo pasta com numero incorreto de imagens: " +
-                      exp+"/"+tp+"/"+user)
-                if(delete):
-                    shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user)
-                num_incorreto += 1
+                if user not in users_list:
+                    users_list.append(
+                        [user, "Pasta com " + str(len(infos)) + " imagens no " + exp+"/"+tp+"/"+user])
                 continue
             achou = False
             for nm in infos:
@@ -35,15 +30,28 @@ for exp in expressions:
                     achou = True
                     break
             if(achou):
-                print("Removendo pasta com erros: "+exp+"/"+tp+"/"+user)
-                com_erro += 1
-                if(delete):
-                    shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user)
+                if user not in users_list:
+                    users_list.append(
+                        [user, "Pasta com algum erro no " + exp+"/"+tp+"/"+user])
                 continue
+print()
+print()
+print("Excluindo pastas de " + str(len(users_list))+" users:")
+for user in users_list:
+    print(user)
+print()
 
-print()
-print()
-print()
-print("Pastas com numero de fotos incorreto: ", num_incorreto)
-print("Pastas Vazias: ", pasta_vazia)
-print("Pastas com erro: ", com_erro)
+if(delete):
+    for user in users_list:
+        user = user[0]
+        exps = ["00", "01", "02", "03", "04", "05", "06", "07"]
+        tps = ["00", "01"]
+        for exp in exps:
+            for tp in tps:
+                try:
+                    print("excluindo "+exp+"/"+tp+" /"+user)
+                    shutil.rmtree("../processed/"+exp+"/"+tp+" /"+user)
+                except:
+                    print("Erro ao excluir")
+
+            print()
