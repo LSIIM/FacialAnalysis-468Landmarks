@@ -47,7 +47,7 @@ def analyseFace(image, extractor):
         return [], adjuster.error
 
     nlms = adjuster.getLms()
-    image = adjuster.getImg()
+    '''image = adjuster.getImg()
     for lm in nlms:
         cv2.putText(image, str("."), lm, cv2.FONT_HERSHEY_PLAIN,
                     0.8, (0, 255, 0), 1)
@@ -61,7 +61,7 @@ def analyseFace(image, extractor):
                          nlms[tria[2]], (0, 0, 255), 1)
 
     cv2.imshow("img", image)
-    cv2.waitKey(0)
+    cv2.waitKey(0)'''
 
     print("Fim")
     return nlms, None
@@ -142,15 +142,16 @@ def analysisProcessHandler():
 
 if __name__ == "__main__":
     print("Começando analise")
-    landmarks_extractor = FaceMashDetector()
-    handleUser("05", "01", "00012", landmarks_extractor)
-'''processes = []
-for i in range(5):
-    print("Registrando processo paralelo:" + str(i))
-    processes.append(Process(target=analysisProcessHandler))
+    processes = []
+    for i in range(5):
+        print("Registrando processo paralelo:" + str(i))
+        processes.append(Process(target=analysisProcessHandler))
 
-for process in processes:
-    process.start()
+    for process in processes:
+        process.start()
 
-for process in processes:
-    process.join()'''
+    for process in processes:
+        process.join()
+
+'''landmarks_extractor = FaceMashDetector()
+handleUser("05", "01", "00012", landmarks_extractor)'''
