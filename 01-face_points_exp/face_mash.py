@@ -7,7 +7,7 @@ from memory_profiler import profile
 
 class FaceMashDetector():
     def __init__(self,
-                 staticImageMode=False,
+                 staticImageMode=True,
                  maxNumFaces=1,
                  minDetectionConfidence=0.5,
                  minTrackingConfidence=0.4):
