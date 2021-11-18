@@ -63,7 +63,6 @@ def analyseFace(image, extractor):
     cv2.imshow("img", image)
     cv2.waitKey(0)'''
 
-    print("Fim")
     return nlms, None
 
 
