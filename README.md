@@ -38,17 +38,12 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 │   |   |
 │   |   ├── /[id_expressão]
 │   |   |   |
+│   |   |   ├── [id_expressão].png
 │   |   |   ├── /[id_pessoa]
 │   |   |   | |
 │   |   |   | ├── [id_foto].csv
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-line_1.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-line_2.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-line_2.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-triangles_1.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-triangles_2.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-line_mean.png
-│   |   |   | ├── [id_pessoa]-[id_expressão]\mask-triangles_mean.png
+│   |   |   | ├── [id_foto].jpg
+│   |   |   | ├── mean_mask.jpg
 |
 │   ├── /pattern_analysis
 │   |   |
