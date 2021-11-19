@@ -45,4 +45,10 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 - 06644 - 2 imagens em 00/00
 
 ## Exemplo de Máscara gerada com os Landmarks obtidos
-![data-lms-2019-06-07 11_01_12](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/blob/main/processed/face_points/05/00/04435/data-lms-2019-06-07%2010_59_12.jpg?raw=true)
+
+<p align="center">
+<img src="../processed/face_points/05/00/04435/data-lms-2019-06-07 11_01_12.jpg" height="350px" width="auto"/>
+</p>
+
+
+
