@@ -34,3 +34,15 @@ Para melhor analisar as imagens posteriormente um padrão será adotado, e ele s
 - somente então será salva com os dados relativos a imagem no fim deste processo.
 
 ![image](https://user-images.githubusercontent.com/42501669/140919974-db400ddb-41a4-4c7f-bd41-c7ad0ad03ba6.png)
+
+## Remoções do Dataset
+
+### Número incorreto de fotos em uma pasta do usuário
+
+nos casos em que foi detectado que uma das pastas do usuário continha um numero diferente de 3 fotos, todas as pastas dele foram removidas da analise.
+Os usuários que esta regra foi aplicada são os que seguem, com as seguintes observações:
+
+- 00541 - 4 imagens em 00/00
+- 02069 - 11 imagens em 00/00
+- 05669 - 7 imagens em 00/00
+- 06644 - 2 imagens em 00/00
