@@ -38,7 +38,7 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 │   |   |
 │   |   ├── [id_expressão]
 │   |   |   |
-|   |   |   ├── [id_expressão].png 
+|   |   |   ├── mean_[id_expressão].png 
 │   |   |   ├── [id_supervisionado]
 │   |   |   |   ├── [id_pessoa]
 │   |   |   |   |   |
