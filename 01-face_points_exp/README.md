@@ -16,7 +16,7 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 │   |   |   |   |   |
 │   |   |   |   |   ├── [id_foto].csv (vai conter as posições xy dos landmarks da foto)
 │   |   |   |   |   ├── [id_foto].jpg (Mascara de triangulos da pessoa com fundo preto pra cada foto)
-│   |   |   |   |   ├── mean_mask.jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
+│   |   |   |   |   ├── mean_[id_pessoa].jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
 
 ```
 
