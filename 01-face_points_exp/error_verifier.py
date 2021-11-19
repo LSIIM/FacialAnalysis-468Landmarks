@@ -43,15 +43,14 @@ print()
 
 if(delete):
     for user in users_list:
-        user = user[0]
         exps = ["00", "01", "02", "03", "04", "05", "06", "07"]
         tps = ["00", "01"]
         for exp in exps:
             for tp in tps:
                 try:
-                    print("excluindo "+exp+"/"+tp+" /"+user)
-                    shutil.rmtree("../processed/"+exp+"/"+tp+" /"+user)
-                except:
-                    print("Erro ao excluir")
+                    print("excluindo "+exp+"/"+tp+"/"+user[0])
+                    shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user[0])
+                except Exception as exception:
+                    print("Erro ao excluir: " + str(exception))
 
             print()
