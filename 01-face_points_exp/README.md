@@ -5,19 +5,18 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 ```
 .
 ├── /processed
-|
+|   |
 │   ├── /face_points
 │   |   |
 │   |   ├── [id_expressão]
 │   |   |   |
+|   |   |   ├── [id_expressão].png (Mascara com triangulos fantas da expressão com fundo branco)
 │   |   |   ├── [id_supervisionado]
-│   |   |   |   |
-│   |   |   |   ├── [id_usuario]
-│   |   |   |   ├── [id_expressão].png
-│   |   |   |   ├── /[id_pessoa] mascara fantasma de triangulos da expressão com fundo branco)
-│   |   |   |   ├── [id_foto].csv (vai conter as posições xy dos landmarks da foto)
-│   |   |   |   ├── [id_foto].jpg (Mascara de triangulos da pessoa com fundo preto pra cada foto)
-│   |   |   |   ├── mean_mask.jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
+│   |   |   |   ├── [id_pessoa]
+│   |   |   |   |   |
+│   |   |   |   |   ├── [id_foto].csv (vai conter as posições xy dos landmarks da foto)
+│   |   |   |   |   ├── [id_foto].jpg (Mascara de triangulos da pessoa com fundo preto pra cada foto)
+│   |   |   |   |   ├── mean_mask.jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
 
 ```
 
