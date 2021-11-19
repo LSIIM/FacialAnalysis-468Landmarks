@@ -10,7 +10,7 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 │   |   |
 │   |   ├── [id_expressão]
 │   |   |   |
-|   |   |   ├── [id_expressão].png (Mascara com triangulos fantas da expressão com fundo branco)
+|   |   |   ├── mean_[id_expressão].png (Mascara com triangulos fantas da expressão com fundo branco)
 │   |   |   ├── [id_supervisionado]
 │   |   |   |   ├── [id_pessoa]
 │   |   |   |   |   |
