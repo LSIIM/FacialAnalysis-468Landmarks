@@ -43,3 +43,6 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 - 02069 - 11 imagens em 00/00
 - 05669 - 7 imagens em 00/00
 - 06644 - 2 imagens em 00/00
+
+## Exemplo de Máscara gerada com os Landmarks obtidos
+![data-lms-2019-06-07 11_01_12](https://user-images.githubusercontent.com/42501669/142704355-09e5fb0f-b84b-40e1-9734-cb97feb864e1.jpg)
