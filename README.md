@@ -33,17 +33,19 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 |   ├── db.sqlite (Banco de dados com todos os dados processados e agregados)
 |
 ├── /processed
-|
+|   |
 │   ├── /face_points
 │   |   |
-│   |   ├── /[id_expressão]
+│   |   ├── [id_expressão]
 │   |   |   |
-│   |   |   ├── [id_expressão].png
-│   |   |   ├── /[id_pessoa]
-│   |   |   | |
-│   |   |   | ├── [id_foto].csv
-│   |   |   | ├── [id_foto].jpg
-│   |   |   | ├── mean_mask.jpg
+│   |   |   ├── [id_supervisionado]
+│   |   |   |   |
+│   |   |   |   ├── [id_usuario]
+│   |   |   |   |   ├── [id_expressão].png
+│   |   |   |   |   ├── /[id_pessoa] 
+│   |   |   |   |   ├── [id_foto].csv 
+│   |   |   |   |   ├── [id_foto].jpg 
+│   |   |   |   |   ├── mean_mask.jpg 
 |
 │   ├── /pattern_analysis
 │   |   |
