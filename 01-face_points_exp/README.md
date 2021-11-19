@@ -50,5 +50,9 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 <img src="../processed/face_points/05/00/04435/data-lms-2019-06-07 11_01_12.jpg" height="350px" width="auto"/>
 </p>
 
+## Resultado das médias de cada expressão
 
-
+|                                                                                     |                                                                                     |                                                                                     |                                                                                  |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| <img src="../processed/face_points/00/mean_00.jpg" height="200px" width="auto"/> 00 | <img src="../processed/face_points/01/mean_01.jpg" height="200px" width="auto"/> 01 | <img src="../processed/face_points/02/mean_02.jpg" height="200px" width="auto"/> 02 | <img src="../processed/face_points/03/mean_03.jpg" height="200px" width="auto"/> |
+| <img src="../processed/face_points/04/mean_04.jpg" height="200px" width="auto"/> 04 | <img src="../processed/face_points/05/mean_05.jpg" height="200px" width="auto"/> 05 | <img src="../processed/face_points/06/mean_06.jpg" height="200px" width="auto"/> 06 | <img src="../processed/face_points/07/mean_07.jpg" height="200px" width="auto"/> |
