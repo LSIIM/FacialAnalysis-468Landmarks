@@ -9,3 +9,11 @@ O arquivo `muscles_identification.py` é onde é escrito manualmente a relação
 O arquivo `FaceMeshModule.py` é onde está a classe que analisa o rosto. Rela retorna uma nova imagem, caso alguma modificação seja feita lá dentro e uma lista de Faces (Ela pode detectar mais de um rosto). Para cada face ela retorna um par (x,y) que é a coordenada do ponto. O mediapipe analisa a imagem de maneira tridimensional, contudo, como a coordenada Z é irrelevante para esta analise, eu a ignorei.
 
 O arquivo `main.py` utiliza o módulo e a lista de músculos para identificar cada ponto na imagem, gerando um arquivo png com uma legenda, no canto superior esquerdo, dos musculos
+
+
+Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridiculamente gigante)
+
+<p align="center">
+<img src="./MuscleCorrelation/human-muscles-landmarks-colored.jpg" height="500px" width="auto"/>
+</p>
+
