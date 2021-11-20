@@ -5,7 +5,7 @@ import numpy as np
 from memory_profiler import profile
 
 
-class FaceMashDetector():
+class FaceMeshDetector():
     def __init__(self,
                  staticImageMode=True,  # False se analisar video
                  maxNumFaces=1,

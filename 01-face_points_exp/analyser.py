@@ -1,5 +1,5 @@
 from face_adjustments import FaceAdjuster
-from face_mash import FaceMashDetector
+from face_mash import FaceMeshDetector
 from definitions import *
 
 import os
@@ -105,7 +105,7 @@ def handleUser(exp, tp, user, landmarks_extractor):
 
 def analysisProcessHandler():
     expressions = os.listdir(DATASET_PATH)
-    landmarks_extractor = FaceMashDetector()
+    landmarks_extractor = FaceMeshDetector()
     for exp in expressions:
         try:
             os.mkdir("../processed/"+exp)
@@ -136,5 +136,5 @@ if __name__ == "__main__":
     for process in processes:
         process.join()
 
-'''landmarks_extractor = FaceMashDetector()
+'''landmarks_extractor = FaceMeshDetector()
 handleUser("05", "01", "00012", landmarks_extractor)'''
