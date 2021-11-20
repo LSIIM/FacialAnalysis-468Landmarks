@@ -20,6 +20,16 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 
 ```
 
+## Descrição dos arquivos
+
+Os scrips desta pasta devem ser rodados em um shell do pipenv. para instalá-lo, basta executar `$ pip install pipenv` e para iniciar o ambiente virtual: `$ pipenv shell`
+
+- analyser.py (Anda de pasta em pasta do dataset e salva os .csv em processed na pasta raiz do projeto)
+- draw_triangles.py (Anda pelas pastas de processed e, a partir dos csv, gera as mascaras e as salva em .jpg no mesmo diretório)
+- error_verifier.py (Verifica e exclui as inconsistencias encontradas no dataset, como pastas com numeros equivocados de imagens, e casos nos quais faces não foram reconhecidas)
+- face_mehs.py (Uma classe para extrair os pontos da face)
+- face_adjustments.py (Faz as transformações na imagem a partir dos pontos extraidos, de acordo com as definições abaixo)
+
 ## Procedimentos
 
 Para melhor analisar as imagens posteriormente um padrão será adotado, e ele será o seguinte:
