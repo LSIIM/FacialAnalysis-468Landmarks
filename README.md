@@ -12,14 +12,7 @@ Este é um novo repositório para aplicar as tecnicas de analise usadas anterior
 - 7: Surpresa
 # Correlação com os músculos da face
 
-Na pasta /MuscleCorrelation estão os algoritimos utilizados para identificar os musculos da face e relacioná-los com os pontos fornecidos pelo modelo.
-Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridiculamente gigante)
-
-<p align="center">
-<img src="./MuscleCorrelation/human-muscles-landmarks-colored.jpg" height="600px" width="auto"/>
-</p>
-
-
+Na pasta [`MuscleCorrelation`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/blob/main/MuscleCorrelation) estão os algoritimos utilizados para identificar os musculos da face e relacioná-los com os pontos fornecidos pelo modelo.
 
 # Experimentos
 
