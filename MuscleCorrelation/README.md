@@ -14,6 +14,6 @@ O arquivo `main.py` utiliza o módulo e a lista de músculos para identificar ca
 Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridiculamente gigante)
 
 <p align="center">
-<img src="./MuscleCorrelation/human-muscles-landmarks-colored.jpg" height="500px" width="auto"/>
+<img src="./human-muscles-landmarks-colored.jpg" height="500px" width="auto"/>
 </p>
 
