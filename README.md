@@ -37,18 +37,18 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 |
 ├── /processed
 |   |
-│   ├── /face_points
-│   |   |
-│   |   ├── [id_expressão]
-│   |   |   |
-|   |   |   ├── mean_[id_expressão].png 
-│   |   |   ├── [id_supervisionado]
-│   |   |   |   ├── [id_pessoa]
-│   |   |   |   |   |
-│   |   |   |   |   ├── [id_foto].csv 
-│   |   |   |   |   ├── [id_foto].jpg 
-│   |   |   |   |   ├── mean_[id_pessoa].jpg 
-|   |
+|   ├── [id_expressão]
+|   |   |
+|   |   ├── mean_[id_expressão].png 
+|   |   ├── [id_supervisionado]
+|   |   |   ├── [id_pessoa]
+|   |   |   |   |
+|   |   |   |   ├── [id_foto].csv 
+|   |   |   |   ├── [id_foto].jpg 
+|   |   |   |   ├── mean_[id_pessoa].jpg 
+|
+
+----- isso eu ainda não decidi ------------
 │   ├── /pattern_analysis
 │   |   |
 │   |   ├── /[id_pessoa]
