@@ -25,11 +25,11 @@ Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridicula
 
 ## Experimento 1 - Analisar os rostos com o mediapipe e salvar os dados das posições dos Landmarks
 
-O objetivo é coletar os dados para que possam ser analisados e correlacionados posteriormente. O experimento esta descrito na pasta `01-face_points_exp`
+O objetivo é coletar os dados para que possam ser analisados e correlacionados posteriormente. O experimento esta descrito na pasta [`01-face_points_exp`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/01-face_points_exp)
 
 ## Experimento 2 - Analisar os dados obtidos no Exp1 para encontrar algum padrão
 
-O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv. O experimento esta descrito na pasta `01-pattern_analysis`
+O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv. O experimento esta descrito na pasta [`02-pattern_analysis`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/02-pattern_analysis_exp)
 
 # Dados
 
