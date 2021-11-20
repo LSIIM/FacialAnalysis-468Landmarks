@@ -71,7 +71,7 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 ## Exemplo de Máscara gerada com os Landmarks obtidos
 
 <p align="center">
-<img src="./results/05/00/04435/data-lms-2019-06-07 11_01_12.jpg" height="auto" width="350px"/>
+<img src="./results/05/00/04435/data-lms-2019-06-07 10_59_12" height="auto" width="350px"/>
 </p>
 
 ## Resultado das médias de cada expressão
