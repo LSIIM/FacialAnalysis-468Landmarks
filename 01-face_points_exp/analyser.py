@@ -1,5 +1,5 @@
 from face_adjustments import FaceAdjuster
-from face_mash import FaceMeshDetector
+from face_mesh import FaceMeshDetector
 from definitions import *
 
 import os
@@ -11,8 +11,6 @@ from tqdm import tqdm
 import pandas as pd
 
 from multiprocessing import Process
-
-DATASET_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\migma_dataset"
 
 
 def analyseFace(image, extractor):
@@ -52,7 +50,7 @@ def analyseFace(image, extractor):
 
 def handleUser(exp, tp, user, landmarks_extractor):
     try:
-        os.mkdir("../processed/"+exp+"/"+tp+"/"+user)
+        os.mkdir(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
     except:
         user
         return
@@ -85,7 +83,7 @@ def handleUser(exp, tp, user, landmarks_extractor):
             df["Error"] = np.array([str(err)])
             print("Erro na img " + pht + " do user " +
                   user + " no tipo " + tp + " da exp " + exp)
-            df.to_csv("../processed/"+exp+"/"+tp +
+            df.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
                       "/"+user+"/error-"+pht.split(".")[0]+".csv")
             continue
         # print(lms)
@@ -99,7 +97,7 @@ def handleUser(exp, tp, user, landmarks_extractor):
         df["x"] = np.array(x_list)
         df["y"] = np.array(y_list)
         # print(lm)
-        df.to_csv("../processed/"+exp+"/"+tp +
+        df.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
                   "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
 
 
@@ -108,13 +106,13 @@ def analysisProcessHandler():
     landmarks_extractor = FaceMeshDetector()
     for exp in expressions:
         try:
-            os.mkdir("../processed/"+exp)
+            os.mkdir(PROCESSED_PATH + "/"+exp)
         except:
             exp
         types = os.listdir(DATASET_PATH + "/"+exp)
         for tp in types:
             try:
-                os.mkdir("../processed/"+exp+"/"+tp)
+                os.mkdir(PROCESSED_PATH + "/"+exp+"/"+tp)
             except:
                 tp
             print("Tipo: ", tp)

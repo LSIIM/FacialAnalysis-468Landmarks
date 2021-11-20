@@ -2,17 +2,17 @@
 import os
 
 import shutil
-
+from definitions import *
 delete = input("Desseja deletar as inconsistencias detectadas? s/n   ")
 delete = delete == "s" or delete == "S"
 users_list = []
-expressions = os.listdir("../processed")
+expressions = os.listdir(PROCESSED_PATH)
 for exp in expressions:
-    types = os.listdir("../processed/"+exp)
+    types = os.listdir(PROCESSED_PATH + "/"+exp)
     for tp in types:
-        users = os.listdir("../processed/"+exp+"/"+tp)
+        users = os.listdir(PROCESSED_PATH + "/"+exp+"/"+tp)
         for user in users:
-            infos = os.listdir("../processed/"+exp+"/"+tp+"/"+user)
+            infos = os.listdir(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
             if(len(infos) == 0):
                 if user not in users_list:
                     users_list.append(
@@ -49,7 +49,7 @@ if(delete):
             for tp in tps:
                 try:
                     print("excluindo "+exp+"/"+tp+"/"+user[0])
-                    shutil.rmtree("../processed/"+exp+"/"+tp+"/"+user[0])
+                    shutil.rmtree(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user[0])
                 except Exception as exception:
                     print("Erro ao excluir: " + str(exception))
 
