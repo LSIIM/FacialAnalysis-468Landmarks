@@ -30,13 +30,13 @@ Anda de pasta em pasta do dataset e salva os .csv em processed na pasta raiz do 
 
 ### `draw_triangles.py`
 
-Anda `pelas pastas` de processed e, a partir dos csv, gera as mascaras e as salva em .jpg no mesmo diretório
+Anda pelas pastas de processed e, a partir dos csv, gera as mascaras e as salva em .jpg no mesmo diretório
 
 ### `error_verifier.py`
 
 Verifica e exclui as inconsistencias encontradas no dataset, como pastas com numeros equivocados de imagens, e casos nos quais faces não foram reconhecidas
 
-### `face_mehs.py`
+### `face_mesh.py`
 
 Uma classe para extrair os pontos da face
 
