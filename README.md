@@ -11,6 +11,16 @@ Este é um exemplo do resultado (Abra a imagem em uma nova guia, ela é ridicula
 <img src="./MuscleCorrelation/human-muscles-landmarks-colored.jpg" height="600px" width="auto"/>
 </p>
 
+## Lista de emoções
+- 0: Neutra
+- 1: Raiva
+- 2: Desprezo (Contempt)
+- 3: Nojo
+- 4: Medo
+- 5: Alegria
+- 6: Tristeza
+- 7: Surpresa
+
 # Experimentos
 
 ## Experimento 1 - Analisar os rostos com o mediapipe e salvar os dados das posições dos Landmarks
