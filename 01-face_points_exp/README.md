@@ -47,9 +47,9 @@ Faz as transformações na imagem a partir dos pontos extraidos, de acordo com a
 Para melhor analisar as imagens posteriormente um padrão será adotado, e ele será o seguinte:
 
 - Todas as imagens serão rotacionadas para que os olhos fiquem sempre na mesma linha (alignEyes)
-- O ponto 10 é deixado sempre na altura 25 e no centro da imagem, com a distancia entre o ponto 10 e o ponto 152 sendo de 320px (alignFace)
+- O ponto 10 é deixado sempre na altura 25 e no centro da imagem, com a distancia entre o ponto 10 e o ponto 152 sendo de 1500px (alignFace)
 - A imagem será recortada em um retangulo, deixando apenas o rosto centralizado, com margem de 25px.
-- A imagem será deixada com 600px X 600px sem redimensionar, apenas colocando bordas pretas nas laterais e em baixo para completar o tamanho
+- A imagem será deixada com 1900px X 2500px sem redimensionar, apenas colocando bordas pretas nas laterais e em baixo para completar o tamanho
 - somente então será salva com os dados relativos a imagem no fim deste processo.
 
 ![image](https://user-images.githubusercontent.com/42501669/140919974-db400ddb-41a4-4c7f-bd41-c7ad0ad03ba6.png)
