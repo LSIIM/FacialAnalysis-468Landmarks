@@ -79,7 +79,7 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 | <img src="./results/00/mean_00.jpg" height="auto" width="250px"/></br> <p align="center">00</p> | <img src="./results/01/mean_01.jpg" height="auto" width="250px"/></br> <p align="center">01</p> | <img src="./results/02/mean_02.jpg" height="auto" width="250px"/></br> <p align="center">02</p> | <img src="./results/03/mean_03.jpg" height="auto" width="250px"/></br> <p align="center">03</p> |
 | <img src="./results/04/mean_04.jpg" height="auto" width="250px"/></br> <p align="center">04</p> | <img src="./results/05/mean_05.jpg" height="auto" width="250px"/></br> <p align="center">05</p> | <img src="./results/06/mean_06.jpg" height="auto" width="250px"/></br> <p align="center">06</p> | <img src="./results/07/mean_07.jpg" height="auto" width="250px"/></br> <p align="center">07</p> |
 
-### Comparação entre supervisionado e não supervisionado
+## Comparação entre supervisionado e não supervisionado
 
 |                                                                                                       |                                                                                                       |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
