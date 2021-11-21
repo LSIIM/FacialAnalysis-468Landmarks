@@ -6,17 +6,15 @@ Será analisada cada imagem de cada pessoa em cada uma das expressões e o resul
 .
 ├── /processed
 |   |
-│   ├── /face_points
-│   |   |
-│   |   ├── [id_expressão]
-│   |   |   |
-|   |   |   ├── mean_[id_expressão].png (Mascara com triangulos fantas da expressão com fundo branco)
-│   |   |   ├── [id_supervisionado]
-│   |   |   |   ├── [id_pessoa]
-│   |   |   |   |   |
-│   |   |   |   |   ├── [id_foto].csv (vai conter as posições xy dos landmarks da foto)
-│   |   |   |   |   ├── [id_foto].jpg (Mascara de triangulos da pessoa com fundo preto pra cada foto)
-│   |   |   |   |   ├── mean_[id_pessoa].jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
+|   ├── [id_expressão]
+|   |   |
+|   |   ├── mean_[id_expressão].png (Mascara com triangulos fantas da expressão com fundo branco)
+|   |   ├── [id_supervisionado]
+|   |   |   ├── [id_pessoa]
+|   |   |   |   |
+|   |   |   |   ├── [id_foto].csv (vai conter as posições xy dos landmarks da foto)
+|   |   |   |   ├── [id_foto].jpg (Mascara de triangulos da pessoa com fundo preto pra cada foto)
+|   |   |   |   ├── mean_[id_pessoa].jpg (Mascara de triangulos fantasma da pessoa com fundo branco)
 
 ```
 
@@ -71,7 +69,7 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 ## Exemplo de Máscara gerada com os Landmarks obtidos
 
 <p align="center">
-<img src="./results/05/00/04435/data-lms-2019-06-07 10_59_12" height="auto" width="350px"/>
+<img src="./results/05/00/04435/data-lms-2019-06-07 10_59_12.jpg" height="auto" width="350px"/>
 </p>
 
 ## Resultado das médias de cada expressão
