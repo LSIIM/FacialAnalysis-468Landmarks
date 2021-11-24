@@ -53,13 +53,16 @@ def handleUser(exp, tp, user, landmarks_extractor):
         os.mkdir(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
     except:
         user
-        return
+        return None
     try:
         photos = os.listdir(DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
     except:
         print("\nPasta inacessível: " +
               DATASET_PATH + "/"+exp+"/"+tp+"/"+user)
-        return
+        return None
+    mlms = np.array([np.zeros((468,), dtype=np.uint32),
+                    np.zeros((468,), dtype=np.uint32)])
+    num = 0
     for pht in photos:
         df = pd.DataFrame()
 
@@ -94,11 +97,19 @@ def handleUser(exp, tp, user, landmarks_extractor):
         for lm in lms:
             x_list.append(lm[0])
             y_list.append(lm[1])
-        df["x"] = np.array(x_list)
-        df["y"] = np.array(y_list)
+        xnp = np.array(x_list)
+        ynp = np.array(y_list)
+        df["x"] = xnp
+        df["y"] = ynp
+        mlms = np.array([xnp + mlms[0], ynp+mlms[1]], dtype=np.uint32)
+
+        num += 1
         # print(lm)
         df.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
                   "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
+    mlms = np.array([mlms[0]//num, mlms[1]//num], dtype=np.uint32)
+
+    return mlms
 
 
 def analysisProcessHandler():
@@ -110,6 +121,11 @@ def analysisProcessHandler():
         except:
             exp
         types = os.listdir(DATASET_PATH + "/"+exp)
+
+        mexp_lms = np.array(
+            [np.zeros((468,)), np.zeros((468,), dtype=np.uint32)])
+        num_tp = 0
+        df_mean_exp = pd.DataFrame()
         for tp in types:
             try:
                 os.mkdir(PROCESSED_PATH + "/"+exp+"/"+tp)
@@ -117,8 +133,36 @@ def analysisProcessHandler():
                 tp
             print("Tipo: ", tp)
             users = os.listdir(DATASET_PATH + "/"+exp+"/"+tp)
+            mtp_lms = np.array(
+                [np.zeros((468,), dtype=np.uint32), np.zeros((468,), dtype=np.uint32)], dtype=np.uint32)
+            df_mean_tp = pd.DataFrame()
+            num_users = 0
             for user in tqdm(users):
-                handleUser(exp, tp, user, landmarks_extractor)
+                mu_lms = handleUser(exp, tp, user, landmarks_extractor)
+                if(mu_lms is not None):
+                    df_mean_user = pd.DataFrame()
+                    df_mean_user["x"] = mu_lms[0]
+                    df_mean_user["y"] = mu_lms[1]
+                    df_mean_user.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
+                                        "/"+user+"/mean-lms-"+(user)+".csv")
+                    mtp_lms = np.array(
+                        [mu_lms[0]+mtp_lms[0], mu_lms[1]+mtp_lms[1]])
+                    num_users += 1
+            save_mtp_lms = [mtp_lms[0]//num_users, mtp_lms[1]//num_users]
+            save_mtp_lms = np.array(save_mtp_lms, dtype=np.uint32)
+            df_mean_tp["x"] = save_mtp_lms[0]
+            df_mean_tp["y"] = save_mtp_lms[1]
+            df_mean_tp.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp
+                              + "/mean-lms-"+(tp)+".csv")
+            mexp_lms = np.array(
+                [mexp_lms[0]+mtp_lms[0], mexp_lms[1]+mtp_lms[1]])
+            num_tp += 1
+        save_mean_exp = [mexp_lms[0]//num_users, mexp_lms[1]//num_users]
+        save_mean_exp = np.array(save_mean_exp, dtype=np.uint32)
+        df_mean_exp["x"] = save_mean_exp[0]
+        df_mean_exp["y"] = save_mean_exp[1]
+        df_mean_exp.to_csv(PROCESSED_PATH + "/"+exp +
+                           "/mean-lms-"+(exp)+".csv")
 
 
 if __name__ == "__main__":

@@ -17,6 +17,25 @@ def convert_to_ghost(image, num, path):
     cv2.imwrite(path, image)
 
 
+def drawImage(df, path):
+    image = np.zeros(
+        (final_image_size_height, final_image_size_width, 3), dtype=float)
+    x = df["x"].tolist()
+    y = df["y"].tolist()
+    lms = []
+    for i in range(len(x)):
+        lms.append([x[i], y[i]])
+    for tria in TRIANGLES:
+        image = cv2.line(image, lms[tria[0]],
+                         lms[tria[1]], (255, 255, 255), 1)
+        image = cv2.line(image, lms[tria[0]],
+                         lms[tria[2]], (255, 255, 255), 1)
+        image = cv2.line(image, lms[tria[1]],
+                         lms[tria[2]], (255, 255, 255), 1)
+    cv2.imwrite(path, image)
+    return image
+
+
 expressions = os.listdir(PROCESSED_PATH)
 for exp in expressions:
     mean_exp = np.zeros(
@@ -27,6 +46,10 @@ for exp in expressions:
     types = os.listdir(PROCESSED_PATH + "/"+exp)
     for tp in types:
         if(len(tp.split(".")) > 1):
+            if(tp.split(".")[1] == "csv"):
+                df = pd.read_csv(PROCESSED_PATH + "/"+exp+"/"+tp)
+                image = drawImage(df, PROCESSED_PATH + "/"+exp +
+                                  "/" + tp.split(".")[0]+'.jpg')
             continue
         users = os.listdir(PROCESSED_PATH + "/"+exp+"/"+tp)
         mean_exp_tp = np.zeros(
@@ -34,6 +57,10 @@ for exp in expressions:
         num_users_images = 0
         for user in tqdm(users):
             if(len(user.split(".")) > 1):
+                if(user.split(".")[1] == "csv"):
+                    df = pd.read_csv(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
+                    image = drawImage(df, PROCESSED_PATH + "/"+exp +
+                                      "/"+tp+"/" + tp.split(".")[0]+'.jpg')
                 continue
             infos = os.listdir(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
             mean_user = np.zeros(
@@ -42,22 +69,8 @@ for exp in expressions:
                 if(doc.split(".")[1] == "csv"):
                     df = pd.read_csv(PROCESSED_PATH + "/"+exp +
                                      "/"+tp+"/"+user+"/"+doc)
-                    image = np.zeros(
-                        (final_image_size_height, final_image_size_width, 3), dtype=float)
-                    x = df["x"].tolist()
-                    y = df["y"].tolist()
-                    lms = []
-                    for i in range(len(x)):
-                        lms.append([x[i], y[i]])
-                    for tria in TRIANGLES:
-                        image = cv2.line(image, lms[tria[0]],
-                                         lms[tria[1]], (255, 255, 255), 1)
-                        image = cv2.line(image, lms[tria[0]],
-                                         lms[tria[2]], (255, 255, 255), 1)
-                        image = cv2.line(image, lms[tria[1]],
-                                         lms[tria[2]], (255, 255, 255), 1)
-                    cv2.imwrite(PROCESSED_PATH + "/"+exp +
-                                "/"+tp+"/"+user+"/" + doc.split(".")[0]+'.jpg', image)
+                    image = drawImage(df, PROCESSED_PATH + "/"+exp +
+                                      "/"+tp+"/"+user+"/" + doc.split(".")[0]+'.jpg')
                     #cv2.imshow("img", image)
                     mean_user += image
                     mean_exp += image
