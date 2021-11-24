@@ -157,7 +157,7 @@ def analysisProcessHandler():
             mexp_lms = np.array(
                 [mexp_lms[0]+mtp_lms[0], mexp_lms[1]+mtp_lms[1]])
             num_tp += 1
-        save_mean_exp = [mexp_lms[0]//num_users, mexp_lms[1]//num_users]
+        save_mean_exp = [mexp_lms[0]//num_tp, mexp_lms[1]//num_tp]
         save_mean_exp = np.array(save_mean_exp, dtype=np.uint32)
         df_mean_exp["x"] = save_mean_exp[0]
         df_mean_exp["y"] = save_mean_exp[1]
