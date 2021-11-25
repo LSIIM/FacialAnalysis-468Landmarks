@@ -123,7 +123,7 @@ def analysisProcessHandler():
         types = os.listdir(DATASET_PATH + "/"+exp)
 
         mexp_lms = np.array(
-            [np.zeros((468,)), np.zeros((468,), dtype=np.uint32)])
+            [np.zeros((468,), dtype=np.uint32), np.zeros((468,), dtype=np.uint32)])
         num_tp = 0
         df_mean_exp = pd.DataFrame()
         for tp in types:
@@ -134,7 +134,7 @@ def analysisProcessHandler():
             print("Tipo: ", tp)
             users = os.listdir(DATASET_PATH + "/"+exp+"/"+tp)
             mtp_lms = np.array(
-                [np.zeros((468,), dtype=np.uint32), np.zeros((468,), dtype=np.uint32)], dtype=np.uint32)
+                [np.zeros((468,), dtype=np.uint32), np.zeros((468,), dtype=np.uint32)])
             df_mean_tp = pd.DataFrame()
             num_users = 0
             for user in tqdm(users):
@@ -168,7 +168,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(5):
+    for i in range(3):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 

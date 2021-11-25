@@ -60,7 +60,7 @@ for exp in expressions:
                 if(user.split(".")[1] == "csv"):
                     df = pd.read_csv(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
                     image = drawImage(df, PROCESSED_PATH + "/"+exp +
-                                      "/"+tp+"/" + tp.split(".")[0]+'.jpg')
+                                      "/"+tp+"/" + user.split(".")[0]+'.jpg')
                 continue
             infos = os.listdir(PROCESSED_PATH + "/"+exp+"/"+tp+"/"+user)
             mean_user = np.zeros(

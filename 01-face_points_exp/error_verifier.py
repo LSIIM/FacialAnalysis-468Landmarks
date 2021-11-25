@@ -3,7 +3,9 @@ import os
 
 import shutil
 from definitions import *
-delete = input("Desseja deletar as inconsistencias detectadas? s/n   ")
+
+delete = input(
+    "SÓ EXECUTA COM O SIM SE VC JA TERMINOU O ANALYSER!!!!!!!!!!\nDesseja deletar as inconsistencias detectadas? s/n   ")
 delete = delete == "s" or delete == "S"
 users_list = [[], []]
 expressions = os.listdir(PROCESSED_PATH)
@@ -77,7 +79,6 @@ if(delete):
         for exp in exps:
             for tp in tps:
                 try:
-                    print("excluindo "+exp+"/"+tp+"/"+str(user[0]))
                     shutil.rmtree(PROCESSED_PATH + "/"+exp +
                                   "/"+tp+"/"+str(user[0]))
                 except Exception as exception:
