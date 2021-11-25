@@ -39,13 +39,13 @@ def analyseFace(image, extractor):
     _, succeed = adjuster.alignFace()
     if not succeed:
         return [], adjuster.error
-    _, succeed = adjuster.fixImageSizeWitBorders()
+    finalImage, succeed = adjuster.fixImageSizeWitBorders()
     if not succeed:
         return [], adjuster.error
 
     nlms = adjuster.getLms()
 
-    return nlms, None
+    return nlms, finalImage, None
 
 
 def handleUser(exp, tp, user, landmarks_extractor):
@@ -74,7 +74,7 @@ def handleUser(exp, tp, user, landmarks_extractor):
             break
 
         try:
-            lms, err = analyseFace(
+            lms, fimage, err = analyseFace(
                 cv2.imread(path), landmarks_extractor)
         except Exception as exception:
             err = type(exception).__name__
@@ -89,8 +89,8 @@ def handleUser(exp, tp, user, landmarks_extractor):
             df.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
                       "/"+user+"/error-"+pht.split(".")[0]+".csv")
             continue
-        # print(lms)
-
+        # Salva a foto cortada do rosto
+        cv2.imwrite(PROCESSED_PATH + "/"+exp + "/"+tp+"/face-" + pht, fimage)
         # salva o resultado num df e coloca num csv
         x_list = []
         y_list = []
@@ -108,7 +108,6 @@ def handleUser(exp, tp, user, landmarks_extractor):
         df.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp +
                   "/"+user+"/data-lms-"+pht.split(".")[0]+".csv")
     mlms = np.array([mlms[0]//num, mlms[1]//num], dtype=np.uint32)
-
     return mlms
 
 
@@ -156,7 +155,7 @@ def analysisProcessHandler():
                               + "/mean-lms-"+(tp)+".csv")
             mexp_lms = np.array(
                 [mexp_lms[0]+mtp_lms[0], mexp_lms[1]+mtp_lms[1]])
-            num_tp += 1
+            num_tp += num_users
         save_mean_exp = [mexp_lms[0]//num_tp, mexp_lms[1]//num_tp]
         save_mean_exp = np.array(save_mean_exp, dtype=np.uint32)
         df_mean_exp["x"] = save_mean_exp[0]

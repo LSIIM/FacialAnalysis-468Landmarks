@@ -9,6 +9,7 @@ delete = input(
 delete = delete == "s" or delete == "S"
 users_list = [[], []]
 expressions = os.listdir(PROCESSED_PATH)
+dataset_delete = input("\ndeseja excluir os originais do dataset também?")
 
 
 def checkIn(num, lista):  # o not in não funciona...
@@ -80,6 +81,8 @@ if(delete):
             for tp in tps:
                 try:
                     shutil.rmtree(PROCESSED_PATH + "/"+exp +
+                                  "/"+tp+"/"+str(user[0]))
+                    shutil.rmtree(DATASET_PATH + "/"+exp +
                                   "/"+tp+"/"+str(user[0]))
                 except Exception as exception:
                     continue
