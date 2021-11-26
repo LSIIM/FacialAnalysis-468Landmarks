@@ -91,3 +91,16 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 | <img src="./results/05/mean_05-00.jpg" height="auto" width="250px"/></br> <p align="center">05/00</p> | <img src="./results/05/mean_05-01.jpg" height="auto" width="250px"/></br> <p align="center">05/01</p> |
 | <img src="./results/06/mean_06-00.jpg" height="auto" width="250px"/></br> <p align="center">06/00</p> | <img src="./results/06/mean_06-01.jpg" height="auto" width="250px"/></br> <p align="center">06/01</p> |
 | <img src="./results/07/mean_07-00.jpg" height="auto" width="250px"/></br> <p align="center">07/00</p> | <img src="./results/07/mean_07-01.jpg" height="auto" width="250px"/></br> <p align="center">07/01</p> |
+
+## Video das faces e mascaras
+
+Fui obrigado a colocar o video no drive pois ele acabou ficando ridiculamente pesado (cerca de 2gb)
+O codec utilizado não é suportado pelo reprodutor do windows, abra o video com o VLC que irá ser lido normalmente.
+O as imagens utilizadas no video tem 1/3 de seu tamanho original, para reduzir o tamanho do mesmo. Deixando-o com a resolução de 1666x633 px
+
+No video as informações estão dispostas da seguinte forma:
+
+- Na esquerda está o rosto cortado da pessoa
+- Na direita a máscara extraida deste rosto
+- no meio estão o tipo/expressão (ids) e o id da pessoa, respectivamente
+- a cada troca de pasta (tipo ou expressão) é mostrado por 2s uma imagem do novo diretorio com os ids (tipo/expressão)
