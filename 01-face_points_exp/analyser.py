@@ -90,7 +90,8 @@ def handleUser(exp, tp, user, landmarks_extractor):
                       "/"+user+"/error-"+pht.split(".")[0]+".csv")
             continue
         # Salva a foto cortada do rosto
-        cv2.imwrite(PROCESSED_PATH + "/"+exp + "/"+tp+"/face-" + pht, fimage)
+        cv2.imwrite(PROCESSED_PATH + "/"+exp + "/" +
+                    tp+"/"+user+"/face-" + pht, fimage)
         # salva o resultado num df e coloca num csv
         x_list = []
         y_list = []
@@ -167,7 +168,7 @@ def analysisProcessHandler():
 if __name__ == "__main__":
     print("Começando analise")
     processes = []
-    for i in range(3):
+    for i in range(4):
         print("Registrando processo paralelo:" + str(i))
         processes.append(Process(target=analysisProcessHandler))
 
