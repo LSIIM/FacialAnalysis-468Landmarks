@@ -9,7 +9,7 @@ frames_image = 15
 fourcc = cv2.VideoWriter_fourcc(*'MPEG')
 video_h = int(final_image_size_height/3)
 video_w = int((final_image_size_width*2)/3)
-out = cv2.VideoWriter(DATASET_PATH+"/faces-video.avi", fourcc,
+out = cv2.VideoWriter(PROCESSED_PATH+"/faces-video.avi", fourcc,
                       vfps, (int(video_w), int(video_h)))
 print((int(video_w), int(video_h)))
 if out is None:
