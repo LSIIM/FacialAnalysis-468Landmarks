@@ -8,7 +8,6 @@ delete = input(
     "SÓ EXECUTA COM O SIM SE VC JA TERMINOU O ANALYSER!!!!!!!!!!\nDesseja deletar as inconsistencias detectadas? s/n   ")
 delete = delete == "s" or delete == "S"
 users_list = [[], []]
-expressions = os.listdir(PROCESSED_PATH)
 dataset_delete = input("\ndeseja excluir os originais do dataset também?")
 
 
@@ -22,6 +21,7 @@ def checkIn(num, lista):  # o not in não funciona...
     return achou_igual
 
 
+expressions = os.listdir(PROCESSED_PATH)
 for exp in expressions:
     if(len(exp.split(".")) > 1):
         continue
