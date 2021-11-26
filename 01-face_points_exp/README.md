@@ -94,7 +94,7 @@ Os usuários que esta regra foi aplicada são os que seguem, com as seguintes ob
 
 ## Video das faces e mascaras
 
-Fui obrigado a colocar o video no drive pois ele acabou ficando ridiculamente pesado (cerca de 2gb)
+Fui obrigado a colocar o video no drive pois ele acabou ficando ridiculamente pesado (cerca de 4,5gb)
 O codec utilizado não é suportado pelo reprodutor do windows, abra o video com o VLC que irá ser lido normalmente.
 O as imagens utilizadas no video tem 1/3 de seu tamanho original, para reduzir o tamanho do mesmo. Deixando-o com a resolução de 1666x633 px
 
