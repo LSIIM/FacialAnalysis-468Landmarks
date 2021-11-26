@@ -153,7 +153,7 @@ def analysisProcessHandler():
             df_mean_tp["x"] = save_mtp_lms[0]
             df_mean_tp["y"] = save_mtp_lms[1]
             df_mean_tp.to_csv(PROCESSED_PATH + "/"+exp+"/"+tp
-                              + "/mean-lms-"+(tp)+".csv")
+                              + "/mean-lms-"+exp+"-"+tp+".csv")
             mexp_lms = np.array(
                 [mexp_lms[0]+mtp_lms[0], mexp_lms[1]+mtp_lms[1]])
             num_tp += num_users
