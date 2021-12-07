@@ -10,14 +10,16 @@ O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de c
 │   |   |
 │   |   ├── /[id_pessoa]
 │   |   |   |
-│   |   |   ├── 0-x.csv (A diferença entre cada ponto das expressões para o neutro)
+│   |   |   ├── x-0.csv (A diferença entre cada ponto das expressões para o neutro)
+│   |   |   ├── 0.csv (as distancias entre cada ponto na exp0)
 │   |   |   ├── 1.csv (as distancias entre cada ponto na exp1)
 │   |   |   ├── 2.csv (as distancias entre cada ponto na exp2)
 │   |   |   ├── 3.csv (as distancias entre cada ponto na exp3)
 │   |   |   ├── 4.csv (as distancias entre cada ponto na exp4)
 │   |   |   ├── 5.csv (as distancias entre cada ponto na exp5)
 │   |   |   ├── 6.csv (as distancias entre cada ponto na exp6)
-│   |   |   ├── 0-x.png (grafico)
+│   |   |   ├── x-0.png (grafico)
+│   |   |   ├── 0s.png (grafico)
 │   |   |   ├── 1.png (grafico)
 │   |   |   ├── 2.png (grafico)
 │   |   |   ├── 3.png (grafico)

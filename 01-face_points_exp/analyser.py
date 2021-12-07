@@ -1,17 +1,23 @@
-from face_adjustments import FaceAdjuster
-from face_mesh import FaceMeshDetector
-from definitions import *
 
 import os
 import cv2
 import numpy as np
 import math
 from tqdm import tqdm
-
 import pandas as pd
-
 from multiprocessing import Process
 
+from face_adjustments import FaceAdjuster
+from face_mesh import FaceMeshDetector
+from inspect import getsourcefile
+import os.path
+import sys
+current_path = os.path.abspath(getsourcefile(lambda:0))
+current_dir = os.path.dirname(current_path)
+parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
+
+sys.path.insert(0, parent_dir)
+from definitions import *
 
 def analyseFace(image, extractor):
     # print("analyseFace")

@@ -1,11 +1,20 @@
 
-from definitions import *
 
 import cv2
 import numpy as np
 from numpy.core.fromnumeric import resize, shape
 from scipy import ndimage
 import math
+
+from inspect import getsourcefile
+import os.path
+import sys
+current_path = os.path.abspath(getsourcefile(lambda:0))
+current_dir = os.path.dirname(current_path)
+parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
+
+sys.path.insert(0, parent_dir)
+from definitions import *
 pi = 3.14159265359
 
 
