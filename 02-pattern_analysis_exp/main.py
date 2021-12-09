@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import math
+from multiprocessing import Process
 
 
 from distances_module import self_distance
-from prc_folders import users_list
 from inspect import getsourcefile
 import os.path
 import sys
@@ -52,29 +52,52 @@ def compare_masks(mask_ref,mask_comp):
     return dists_obj
 
 def save_results(df,user,exp_ref,exp_comp,tp_ref,tp_comp):
-    try:
-        os.mkdir(PATTERN_TEST_PATH+"/"+user)
-    except:
-        None
     df.to_csv(PATTERN_TEST_PATH+"/"+user+"/"+exp_ref+"-"+tp_ref+"_"+exp_comp+"-"+tp_comp+".csv")
-if __name__ == "__main__":
-    
+
+def analyse(multicore = False):
+    users = os.listdir(PROCESSED_PATH+"/00/00/")
+    users_list = []
+    for user in users:
+        if(len(user.split("."))==1):
+            users_list.append(user)
     for user in tqdm(users_list):
+        try:
+            os.mkdir(PATTERN_TEST_PATH+"/"+user)
+        except:
+            if multicore:
+                continue
+            else:
+                None
         for i in range(len(emotions_list)):
             exp_ref = "0"+str(i)
             for j in range(2):
                 tp_ref = "0" + str(j)
                 mean_user_ref = get_mean_mask_data(user= user,expression =exp_ref,supervisioned = tp_ref)
-                for k in range(len(emotions_list)):
-                    exp_comp = "0"+str(k)
-                    for u in range(2):
-                        tp_comp = "0" + str(u)
-                        if(exp_ref == exp_comp and tp_ref == tp_comp):
-                            continue
-                        mean_user_comp = get_mean_mask_data(user= user,expression =exp_comp,supervisioned = tp_comp)
-                        dists_obj = compare_masks(mean_user_ref,mean_user_comp)
-                        dists_df = dists_obj.get_dataframe()
-                        save_results(dists_df,user,exp_ref,exp_comp,tp_ref,tp_comp)
+                exp_comp = "00"
+                tp_comp = "00"
+                mean_user_comp = get_mean_mask_data(user= user,expression =exp_comp,supervisioned = tp_comp)
+                dists_obj = compare_masks(mean_user_ref,mean_user_comp)
+                dists_df = dists_obj.get_dataframe()
+                save_results(dists_df,user,exp_ref,exp_comp,tp_ref,tp_comp)
+if __name__ == "__main__":
+    multicore = input("Deseja fazer a analise em multicore? (s/n)  ")
+    multicore = multicore == "S" or multicore == "s"
+    if multicore:
+        print("Começando analise multicore")
+        processes = []
+        for i in range(6):
+            print("Registrando processo paralelo:" + str(i))
+            processes.append(Process(target=analyse, args=[True]))
+
+        for process in processes:
+            process.start()
+
+        for process in processes:
+            process.join()
+    else:
+        
+        print("Começando analise singlecore")
+        analyse()
     '''neutral_mean_mask = get_mean_mask_data(user= "04435",expression ="00",supervisioned = "00")
     dists_obj = compare_masks(neutral_mean_mask,neutral_mean_mask)
     dists_df = dists_obj.get_dataframe()
