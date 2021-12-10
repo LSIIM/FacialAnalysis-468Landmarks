@@ -37,11 +37,8 @@ class MaskStats():
         
         new_dists = np.array(dist_df["distances"])
         mean_dists = np.array(self.df["distances"])
-        deviation = np.sqrt((mean_dists - new_dists)**2)
-        try:
-            self.df["std_deviation"]
-        except:
-            self.df["std_deviation"] = np.zeros(deviation.shape)
+        dists_dif = mean_dists - new_dists
+        deviation = np.sqrt((dists_dif)**2)
         
         self.df["std_deviation"] = np.array(self.df["std_deviation"]) + deviation
         self.qtd_masks+=1
@@ -52,6 +49,7 @@ class MaskStats():
         self.df["origins"] = df["origins"]
         self.df["destinations"] = df["destinations"]
         self.df["distances"] = df["distances"]
+        self.df["std_deviation"] = np.zeros(np.array(df["distances"]).shape)
 
     
     def save_dataframe(self):

@@ -36,8 +36,8 @@ if __name__ == "__main__":
             df = pd.read_csv(PATTERN_TEST_PATH+"/"+user+"/"+arq)
             for i in range(len(saves)):
                 if(saves[i].verify_mask_type(arq)):
-                    saves[i].add_distances(df)
+                    saves[i].add_std_deviation(df)
                     break
     for i in range(len(saves)):
-        saves[i].calculate_dist_means()
+        saves[i].calculate_deviation_means()
         saves[i].save_dataframe()
