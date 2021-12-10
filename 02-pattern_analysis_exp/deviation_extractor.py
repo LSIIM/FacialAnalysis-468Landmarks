@@ -24,10 +24,7 @@ if __name__ == "__main__":
     for i in range(8):
         for j in range(2):
             mask_obj = MaskStats(i,j)
-            exp = "0"+str(i)
-            tp = "0"+str(j)
-            df = pd.read_csv("./results/analysis/"+exp+"/"+tp+"/distances-stats.csv")
-            mask_obj.load_df(df)
+            mask_obj.load_df()
             saves.append()
     
     for user in tqdm(users):
