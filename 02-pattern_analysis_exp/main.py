@@ -5,7 +5,7 @@ import math
 from multiprocessing import Process
 
 
-from distances_module import self_distance
+from distances_module import MaskDistances
 from inspect import getsourcefile
 import os.path
 import sys
@@ -40,7 +40,7 @@ def get_distance(x_o,y_o,x_d,y_d):
     return math.sqrt( (x_d-x_o)**2 + (y_d-y_o)**2) 
 
 def compare_masks(mask_ref,mask_comp):
-    dists_obj = self_distance("00","00","04435")
+    dists_obj = MaskDistances("00","00","04435")
     for i in range (len(mask_ref["x"])):
         x_o = int(mask_ref["x"][i])
         y_o = int(mask_ref["y"][i])

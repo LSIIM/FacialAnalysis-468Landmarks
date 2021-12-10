@@ -1,6 +1,8 @@
-## Experimento 2 - Analisar os dados obtidos no Exp1 para encontrar algum padrão
+# Experimento 2 - Analisar os dados obtidos no Exp1 para encontrar algum padrão
 
 O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv, bem como gerar graficos para representar estes dados, conforme listado abaixo:
+
+## Arquivos gerados
 
 ```
 .
@@ -28,3 +30,7 @@ O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de c
 │   |   |   ├── 6.png (grafico)
 │   |   |   ├── 7.png (grafico)
 ```
+
+## Remoções do dataset
+
+- Usuário 06644: Não fez todas as capturas

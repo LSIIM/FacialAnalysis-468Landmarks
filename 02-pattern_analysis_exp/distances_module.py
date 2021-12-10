@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-class self_distance():
+class MaskDistances():
     def __init__(self, exp_reference, exp_comp, user):
         self.exp_reference = exp_reference
         self.exp_comp = exp_comp
