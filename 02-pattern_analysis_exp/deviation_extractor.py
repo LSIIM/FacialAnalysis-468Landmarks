@@ -44,26 +44,3 @@ if __name__ == "__main__":
     for i in range(len(saves)):
         saves[i].calculate_dist_means()
         saves[i].save_dataframe()
-
-
-if __name__ == "__main__":
-    
-    exps = os.listdir("./results/analysis")
-    saves = []
-    for i in range(8):
-        for j in range(2):
-            saves.append(MaskStats(i,j))
-    
-    for exp in tqdm(exps):
-        tps = os.listdir("./results/analysis/"+exp)
-        for tp in tps:
-            arq_path = "./results/analysis/"+exp + "/"+tp +"/distances-stats.csv"
-
-            df = pd.read_csv(arq_path)
-            for i in range(len(saves)):
-                if(saves[i].verify_mask_type(arq)):
-                    saves[i].add_std_deviation(df)
-                    break
-    for i in range(len(saves)):
-        saves[i].calculate_deviation_means()
-        saves[i].save_dataframe()
