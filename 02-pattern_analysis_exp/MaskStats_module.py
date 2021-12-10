@@ -15,6 +15,8 @@ class MaskStats():
         new_dists = np.array(dist_df["distances"])
         if(len(self.df)==0):
             old_dists = np.zeros(new_dists.shape)
+            self.df["origins"] = dist_df["origins"]
+            self.df["destinations"] = dist_df["destinations"]
         else:
             old_dists = np.array(self.df["distances"])
         self.df["distances"] = old_dists + new_dists
@@ -46,7 +48,10 @@ class MaskStats():
     def get_dataframe(self):
         return self.df
     def load_df(self):
-        self.df = pd.read_csv("./results/analysis/"+self.emotion+"-"+self.tp+"/distances-stats.csv")
+        df = pd.read_csv("./results/analysis/"+self.emotion+"-"+self.tp+"/distances-stats.csv")
+        self.df["origins"] = df["origins"]
+        self.df["destinations"] = df["destinations"]
+        self.df["distances"] = df["distances"]
 
     
     def save_dataframe(self):

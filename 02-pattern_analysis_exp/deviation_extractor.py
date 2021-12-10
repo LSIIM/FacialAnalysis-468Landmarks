@@ -25,7 +25,7 @@ if __name__ == "__main__":
         for j in range(2):
             mask_obj = MaskStats(i,j)
             mask_obj.load_df()
-            saves.append()
+            saves.append(mask_obj)
     
     for user in tqdm(users):
         arqs = os.listdir(PATTERN_TEST_PATH+"/"+user)
