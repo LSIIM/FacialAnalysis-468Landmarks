@@ -20,9 +20,31 @@ Na pasta [`MuscleCorrelation`](https://github.com/MIGMA-Team/FacialAnalysis-468L
 
 O objetivo é coletar os dados para que possam ser analisados e correlacionados posteriormente. O experimento esta descrito na pasta [`01-face_points_exp`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/01-face_points_exp)
 
-## Experimento 2 - Analisar os dados obtidos no Exp1 para encontrar algum padrão
+## Experimento 2 - Processamento dos dados obtidos no Exp1
 
-O objetivo é calcular a distancia de cada ponto para cada ponto da mascara de cada expressão e calcular a distancia entre cada ponto com sua contraparte na expressão neutra e salvar essas proporções em um csv. O experimento esta descrito na pasta [`02-pattern_analysis`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/02-pattern_analysis_exp)
+O objetivo é calcular a distancia entre cada ponto para cada ponto na expressão neutra não supervisionada e salvar essas proporções em um csv. O experimento esta descrito na pasta [`02-pattern_analysis`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/02-pattern_analysis_exp)
+
+## Experimento 3 - Criação dos gráficos de pseudo-cluster
+O obejtivo é renderizar gráficos bidimensionais para avaliar gráficamente a correlação entre as distâncias, e diferenças de distancias, com os resultados dos questionários psiquiatricos.
+Os gráficos serão dividos em n partes
+- Gráficos da parte 1: Todos para todos da Face inteira
+- Gráficos da parte 2: Todos para todos do agrupamento por músculo
+- Gráficos da parte 3: Todos para todos do agrupamento por grupo muscular
+- Gráficos da parte 4: Todos para todos, por músculo, do agrupamento por músculo
+- Gráficos da parte 5: Todos para todos, por grupo múscular, do agrupamento por grupo muscular
+> talves plotar de distancia para distancia, em vez de Score X Distância, de algum resultado positivo (se der o quote do exp 4 pode ser feito tb)
+
+## Experimento 4 - Calculo de correlações
+O experimento 3 foi útil para diminuir os candidatos à esta analise, pois caso contrário, o número de calculos de correlação feitos aqui seria astronômico. As correlações seão feitas com os dados nos quais foi possivel observar algum padrão de agrupamento nos gráficos da Experimento 3.
+
+Para as correlações, primeiro será analisado o tipo de distribuição de cada variavel e então, feito os cálculos classicos de correlação, considerando o X cada um dos resultados do questionário e o Y cada uma das distâncias (Já deu para entender o por que de ser necessário a redução do conjunto de análise)
+> Também pensei em fazer de Y para Y, mas ai eu já não sei se vale a pena
+
+## Experimento 5 - Testes de hipóteses
+
+### Hipótese 1 - pessoa com score mais alto em depressão tende a ter uma media maior das distancias da face neutra pra neutra media dos participantes
+
+### Hipótese 2 - 
 
 # Dados
 
@@ -53,20 +75,7 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 │   |   |
 │   |   ├── /[id_pessoa]
 │   |   |   |
-│   |   |   ├── 0-x.csv
-│   |   |   ├── 1-x.csv
-│   |   |   ├── 2-x.csv
-│   |   |   ├── 3-x.csv
-│   |   |   ├── 4-x.csv
-│   |   |   ├── 5-x.csv
-│   |   |   ├── 6-x.csv
-│   |   |   ├── 7-x.csv
-│   |   |   ├── 0-x.png
-│   |   |   ├── 1-x.png
-│   |   |   ├── 2-x.png
-│   |   |   ├── 3-x.png
-│   |   |   ├── 4-x.png
-│   |   |   ├── 5-x.png
-│   |   |   ├── 6-x.png
-│   |   |   ├── 7-x.png
+│   |   |   ├── exp-tp_00-00.csv 
+│   |   |   ├── mean-dists_allp-allp.csv 
+│   |   |   ├── mean-diff-dists_allp-allp.csv
 ```
