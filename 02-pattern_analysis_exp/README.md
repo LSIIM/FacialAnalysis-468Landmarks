@@ -6,9 +6,11 @@ Para cada uma das máscaras de um usuário, obter as distâncias de cada ponto d
 ## Parte 2
 A partir dos dados gerados na parte 1, que são MUITOS, reduzílos a alguns números que, em teoria, representam a mascara daquela pessoa. Os resultados que serão coletados são os que seguem:
 
-- Média de diferença entre a distancia de cada distancia de uma máscara para a máscara média
-- Média de diferença entre a distancia de cada distancia de uma máscara para a máscara média, agrupado por músculos (Ver [MuscleCorrelation](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/MuscleCorrelation))
-- Média de diferença entre a distancia de cada distancia de uma máscara para a máscara média, agrupado por GRUPOS musculares
+- Média de diferença entre as distancias da máscara em análise para todas as distancias da máscara neutra NS média
+- Média de diferença entre as distancias da máscara em análise para todas as distancias da máscara neutra NS média, agrupado por músculos (Ver [MuscleCorrelation](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/MuscleCorrelation))
+- Média de diferença entre as distancias da máscara em análise para todas as distancias da máscara neutra NS média, agrupado por GRUPOS musculares
+- Média de diferença entre as distancias da máscara em análise para todas as distancias, separado por músculo, da máscara neutra NS média, agrupado por músculos (Ver [MuscleCorrelation](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/MuscleCorrelation))
+- Média de diferença entre as distancias da máscara em análise para todas as distancias, separado por grupo múscular da máscara neutra NS média, agrupado por GRUPOS musculares
 
 Todos os dados citados acima serão salvos em .cvs's, de acordo com a relação dos arquivos gerados
 
@@ -24,9 +26,14 @@ Todos os dados citados acima serão salvos em .cvs's, de acordo com a relação 
 │   |   ├── /[id_pessoa]
 │   |   |   |
 │   |   |   ├── exp-tp_00-00.csv (A diferença entre cada ponto das expressões para o neutro NS)
-
+│   |   |   ├── mean-diff-dists_allp-allp.csv (A diferença entre cada ponto das expressões para o neutro NS)
 ```
 
+### mean-diff-dists_allp-allp.csv
+Neste cvs estão os dados relativos às analises de todos os pontos para todos os pontos, de acordo com a segiunte tabela:
+| |exp|tp|face|muscle1|muscle2|...|
+|---|---|---|---|---|---|---|
+| |Número da expressão|Supervisionado ou não|distância média de todos para todos da face inteira|distância média de todos para todos do músculo 1|distância média de todos para todos do músculo 2|...|
 ## Remoções do dataset
 
 - Usuário 06644: Não fez todas as capturas
