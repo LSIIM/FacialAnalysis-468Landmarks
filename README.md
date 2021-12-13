@@ -33,7 +33,7 @@ Os gráficos serão dividos em n partes
 - Gráficos da parte 4: Todos para todos, por músculo, do agrupamento por músculo
 - Gráficos da parte 5: Todos para todos, por grupo múscular, do agrupamento por grupo muscular
 > talves plotar de distancia para distancia, em vez de Score X Distância, de algum resultado positivo (se der o quote do exp 4 pode ser feito tb)
-
+> Como eu identifico se algo está bem clusterizado?
 ## Experimento 4 - Calculo de correlações
 O experimento 3 foi útil para diminuir os candidatos à esta analise, pois caso contrário, o número de calculos de correlação feitos aqui seria astronômico. As correlações seão feitas com os dados nos quais foi possivel observar algum padrão de agrupamento nos gráficos da Experimento 3.
 
