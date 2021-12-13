@@ -68,9 +68,7 @@ Os dados serão salvos na pasta processed. Um resumo de seu conteudo é o que se
 |   |   |   |   ├── [id_foto].csv 
 |   |   |   |   ├── [id_foto].jpg 
 |   |   |   |   ├── mean_[id_pessoa].jpg 
-|
-
------ isso eu ainda não decidi ------------
+|   |
 │   ├── /pattern_analysis
 │   |   |
 │   |   ├── /[id_pessoa]
