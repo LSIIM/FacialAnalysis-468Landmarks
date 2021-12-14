@@ -10,6 +10,14 @@ Este é um novo repositório para aplicar as tecnicas de analise usadas anterior
 - 5: Alegria
 - 6: Tristeza
 - 7: Surpresa
+
+## Questionários Psiquiatricos
+- dbi_score	        : Beck Depression Inventory
+- bai_score	        : Beck Anxiety Inventory
+- asrsa_score	      : ?
+- asrsb_score	      : ?
+- oci_score	        : Obsessive-Compulsive Inventory
+- sqr_score	        : ?
 # Correlação com os músculos da face
 
 Na pasta [`MuscleCorrelation`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/blob/main/MuscleCorrelation) estão os algoritimos utilizados para identificar os musculos da face e relacioná-los com os pontos fornecidos pelo modelo.
