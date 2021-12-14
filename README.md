@@ -36,7 +36,7 @@ O objetivo é coletar os dados para que possam ser analisados e correlacionados 
 
 O objetivo é calcular a distancia entre cada ponto para cada ponto na expressão neutra não supervisionada e salvar essas proporções em um csv. O experimento esta descrito na pasta [`02-pattern_analysis`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/02-pattern_analysis_exp)
 
-## Experimento 3 - Criação dos gráficos de pseudo-cluster
+## Experimento 3 - Criação dos gráficos de pseudo-cluster e clusterization
 
 O obejtivo é renderizar gráficos bidimensionais para avaliar gráficamente a correlação entre as distâncias, e diferenças de distancias, com os resultados dos questionários psiquiatricos.
 Os gráficos serão dividos em n partes
