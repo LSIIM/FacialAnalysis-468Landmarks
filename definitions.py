@@ -9,3 +9,4 @@ emotions_list = ["Neutral", "Angry", "Contempt",
 DATASET_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\migma_dataset"
 PROCESSED_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\processed"
 PATTERN_TEST_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\pattern_analysis"
+FORMS_PATH = r"D:\OneDrive - UFSC\Academico\UFSC\MIGMA\questionarios"
