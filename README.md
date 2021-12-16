@@ -20,7 +20,7 @@ Este é um novo repositório para aplicar as tecnicas de analise usadas anterior
 - **asrsa_score** : Adult Self-Report Scale (Defict de Atenção)
 - **asrsb_score** : Adult Self-Report Scale (Hiperatividade)
 - **oci_score** : Obsessive-Compulsive Inventory
-- **sqr_score** : ?
+- **srq_score** : Self Reporting Questionnaire
 
 # Correlação com os músculos da face
 
