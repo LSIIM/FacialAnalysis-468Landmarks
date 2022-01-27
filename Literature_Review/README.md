@@ -4,8 +4,27 @@ Para guardar aqui as referencias e anotações
 
 ## Emotion Recognition from Physiological Signal Analysis: A Review
 
-[Emotion Recognition from Physiological Signal Analysis: A Review](https://pdf.sciencedirectassets.com/272990/1-s2.0-S1571066119X00031/1-s2.0-S157106611930009X/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAMaCXVzLWVhc3QtMSJHMEUCIGNGo%2BrvoNNh002gn1JbXkkpSYM8gRvzWga%2BdSkLgyFxAiEAvmuw5HPP80vPgqQVDOL%2BOZjtfy%2Bj4LJb1x5v22UweYYqgwQI2%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAEGgwwNTkwMDM1NDY4NjUiDP5dxc9qn7Vv%2BJChiyrXA3kDZ9AbmYKUt9gNg%2B48hrk84maGJzLKRmtBc1LKIKkp%2B7c9RQP6zrSoiKhhcn38%2BTrydaddhsjpF%2BgV5Zq5SWFx2kIoajlzj5c%2FwlLPGfIabE5JEEuaN2cx%2FAIHkXOpVeuL%2FjCiu6%2BTD7KyxN0d55nbqD8IJWYub4Y673Ko%2BP5ec0qcoNYaTkKokmX5%2BQHTJLQ2c%2BOohA8OMW8DSbMDZKwpwn9bfCaNhqE0DNaaRE512fx31JaLqZ8vPYpQVGM3w5jSixraQUh1wo8Y48SKfU%2FfHGRXdVOr5VzRpA4UFjQ3wlxxW8j62%2FXCEdpxv8OGWWRO6K%2BQ3jQK%2FE41m1WPe%2BoERWrFlZlecdHur087gBX6giTExsELuGq98IbkjtX0jApEcDL%2F2BME8LWUFCPIz9J98sgvqoKTURP4GIiblKSfiOuZoIyOd%2FSxucKFatRB4RY7dNkcrL8caYZySsKdLSmjwIIUGaQwMKe%2BGkubE%2Bl4gS5jhxWKvy2%2B33EHsOJyHOJa1EkI1cdtCSOt9GUGq4MiXpFc7uZje3I6qmgxCPft7hXiCsUC0OApYYY%2B2a63exE7x7CVqBfZvZ2cBhcxEqOwpO8DBw1e%2BKtbx4WVxj%2FtdN5ffO9P9DCPkcmNBjqlATg8Pw7t4Ae0ueSH7%2BY8KiS8PS8o4pbuFlaTl67y8JAh31vVolcbbmnWpvLGjwX8zFmuedUpMOSKqK%2FOopoPm357dekjPqdqoUj%2BmlLY0N1MtTUvbmAbbI%2FkaCwPx1abQxT5chtBydt2x3OknCXu6RpNSMtske7CC8cUZ6wkQoTD8Q2k%2FOt50U1FsAozmBmn6G8f1UgNSvFCnrg1iBGub%2F0ZQNTw4g%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211209T194450Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYXESB74LS%2F20211209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0d4abb16e6911f961861aca5aed1e0e21b093632b18d1e963ff7f3ab64d1cf36&hash=868c76a039ffb92bf988fcda218a95407a280ee211d99f7bb42f0168728ab4f0&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S157106611930009X&tid=spdf-7acf4055-7e13-4b05-99e6-428190314a61&sid=f400a11a8e3fb84946784e8-a8708976f668gxrqa&type=client)
+[Emotion Recognition from Physiological Signal Analysis: A Review](https://www.sciencedirect.com/science/article/pii/S157106611930009X)
 
 Nesse estudo eles citam o uso do FACS em um método de reconhecimento de emoções através de câmeras no tópico 3.2
 
 > The Affectiva Emotion SDK (Affectiva, Massachusetts, U.S.A.) [53] offers a six-month trial for students and is able to identify 20 expressions and seven emotions based on the Facial Action Coding System (FACS) by Ekman [26], with a broad support for operating systems (iOS, Android, Web, Windows, Linux, macOS, Unity, Raspberry Pi).
+
+## Facial emotion recognition in major depressive disorder: A meta-analytic review 
+
+[Facial emotion recognition in major depressive disorder: A meta-analytic review ](https://www.sciencedirect.com/science/article/abs/pii/S016503272100639X)
+
+Nesse eles não falam sobre o qu queremos, eles abordam como as pessoas com depressão reconhecem expressões. O que queremos e o inverso
+
+> tudies examining facial emotion recognition in participants with MDD have produced discrepant findings. Specifically, some studies have suggested that symptoms of depression are associated with a general deficit in facial emotion recognition
+
+>The purpose of the current study is to better understand the process of facial emotion recognition in MDD and address the inconsistencies associated with previous studies in this area. Specifically, we examined whether dysthymic participants show a consistent deficit in their ability to identify facial expression of emotion or whether they evidence difficulties in the recognition of specific emotions.
+
+## Automated Facial Action Coding System for dynamic analysis of facial expressions in neuropsychiatric disorders
+
+[Automated Facial Action Coding System for dynamic analysis of facial expressions in neuropsychiatric disorders](https://www.sciencedirect.com/science/article/abs/pii/S016502701100358X)
+
+
+## What is the relationship between the recognition of emotions and core beliefs: Associations between the recognition of emotions in facial expressions and the maladaptive schemas in depressed patients
+
+[What is the relationship between the recognition of emotions and core beliefs: Associations between the recognition of emotions in facial expressions and the maladaptive schemas in depressed patients](https://www.sciencedirect.com/science/article/abs/pii/S0005791610000807)
