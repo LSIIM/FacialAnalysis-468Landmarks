@@ -24,14 +24,14 @@ Nesse eles não falam sobre o que queremos, eles abordam como as pessoas com dep
 
 [Automated Facial Action Coding System for dynamic analysis of facial expressions in neuropsychiatric disorders](https://www.sciencedirect.com/science/article/abs/pii/S016502701100358X)
 
-Esse artigo apresenta uma solução interessante para analisar a difereça entre a forma na qual as expressões faciais são construídas entre pessoas com e sem doenças mentais, contudo, o método de FACS necessita ser feito em vídeo, pois boa parte da análise é feita na transição entre uma Action Unit estar ausente até estar presente.
-Entretanto, o artigo apresenta alguns problemas, tais como uma população de estudo baixíssima (6 pessoas, 3 saudaveis e 3 com esquizofrenia) e o foco em tentar diferenciar as expressões de deurotipicos e de esquizofrênicos em específo. O resultado que chegaram é que esquizofrênicos tem expressões mais ambíguas.
+Esse artigo apresenta uma solução interessante para analisar a diferença entre a forma na qual as expressões faciais são construídas entre pessoas com e sem doenças mentais, contudo, o método de FACS necessita ser feito em vídeo, pois boa parte da análise é feita na transição entre uma Action Unit estar ausente até estar presente.
+Entretanto, o artigo apresenta alguns problemas, tais como uma população de estudo baixíssima (6 pessoas, 3 saudáveis e 3 com esquizofrenia) e o foco em tentar diferenciar as expressões de neurotípicos e de esquizofrênicos em específico. O resultado que chegaram é que esquizofrênicos tem expressões mais ambíguas.
 
-Em alguns pontos a estratégia deles se assemelha à nossa (No caso de comoparar com a expressão neutra):
+Em alguns pontos a estratégia deles se assemelha à nossa (No caso de comparar com a expressão neutra):
 
 > To extract geometric features of a test face, we first align the face to the template by similarity transformations to suppress within-subject head pose variations and inter-subject geometric differences. Next, we use differences of edge lengths between each face and a neutral face of the same person, formed into a 436-dimensional vector of geometric features, thereby further emphasizing the change due to facial expressions and suppressing irrelevant changes
 
-E uma coisa que achei interessante é que eles fizeram um método para identficar emoções "erradas", por exemplo em uma expressão de medo não deveria existir ativação dos músculos de alegra (Esse foi um exemplo que inventei, não chequei a tabela de AUs desqualificadoras pra fazer esse exemplo)
+E uma coisa que achei interessante é que eles fizeram um método para identificar emoções "erradas", por exemplo em uma expressão de medo não deveria existir ativação dos músculos de alegra (Esse foi um exemplo que inventei, não chequei a tabela de AUs desqualificadoras pra fazer esse exemplo)
 
 > To define “inappropriate” frames, we used the statistical study of Kohler et al. (2004), which analyzed which AUs are involved in expressing theuniversal emotions ofhappiness, sadness, anger, and fear. Specifically, they identified AUs that are uniquely present or absent in each emotion. AUs that are uniquely present in a certain emotion were called “qualifying” AUs of the emotion, and AUs that are uniquely absent were called “disqualifying” AUs ofthe emotion, as shown in Table 2. Based on this, we defined an image frame from an intended emotion as inappropriate if it contained one or more disqualifying AUs of that emotion or one or more qualifying AUs of the other emotions. This decision rule was applied to all frames in a video to derive the inappropriateness measure automatically.
 
