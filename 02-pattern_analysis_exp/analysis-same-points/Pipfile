@@ -7,6 +7,8 @@ name = "pypi"
 pandas = "*"
 numpy = "*"
 tqdm = "*"
+plotly = "*"
+matplotlib = "*"
 
 [dev-packages]
 
