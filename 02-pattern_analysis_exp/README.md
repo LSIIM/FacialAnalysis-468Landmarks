@@ -50,7 +50,10 @@ Neste cvs estão os dados relativos às analises de todos os pontos para todos o
 ## Segunda abordagem - Pontos com alta variação em relação à face neutra
 
 Neste experimento apenas serão analisados os pontos e suas contrapartes na expressão neutra.
-A primeira parte foi calcular a média de distancia de cada ponto de todas as 16 máscaras para a neutra e então selecionei todos os pontos que a distancia é superior a média da máscara em todas as máscaras. 77 pontos foram selecionados (imagem)
+A primeira parte foi calcular a média de distancia de cada ponto de todas as 16 máscaras para a neutra e então selecionei todos os pontos que a distancia é superior a média da máscara em todas as máscaras. 77 pontos foram selecionados
+
+![points_img](https://user-images.githubusercontent.com/42501669/154383045-156d83f9-3731-47cc-ba60-9f3e7fd51810.png)
+
 
 Com estes 77 pontos em mão, para cada máscara foi calculada a média deles, criando o arquivo `masks_means_pav.csv`
 
