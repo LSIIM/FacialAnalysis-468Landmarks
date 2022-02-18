@@ -10,6 +10,7 @@ tqdm = "*"
 plotly = "*"
 kaleido = "*"
 matplotlib = "*"
+opencv-python = "*"
 
 [dev-packages]
 ipykernel = "*"

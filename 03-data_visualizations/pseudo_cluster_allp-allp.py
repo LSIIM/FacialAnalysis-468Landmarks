@@ -60,7 +60,7 @@ if __name__ == "__main__":
         df_plot[col] = np.array(x)
         df_plot[name] = np.array(y)
         #fig = px.scatter(df_plot, x=col, y=name)
-        #fig.write_image("./results/"+col+"_"+name+".png")
+        #fig.write_image("./results_pseudo_cluster_RESPxRESP/"+col+"_"+name+".png")
     print(form_by_user.columns)
     for i in range(1,len(form_by_user.columns)-1):
         for j in range(i+1,len(form_by_user.columns)):
@@ -68,5 +68,5 @@ if __name__ == "__main__":
             col2 = form_by_user.columns[j]
             fig = px.scatter_3d(df_plot, x=col1, y=col2, z=z)
             fig.update_traces(marker={'size': 4})
-            fig.write_html("./results/3d-"+col1+"-"+col2+"_"+name+".html")
-            fig.write_image("./results/3d-"+col1+"-"+col2+"_"+name+".png",width=1000, height=1300)
+            fig.write_html("./results_pseudo_cluster_RESPxRESP/3d-"+col1+"-"+col2+"_"+name+".html")
+            fig.write_image("./results_pseudo_cluster_RESPxRESP/3d-"+col1+"-"+col2+"_"+name+".png",width=1000, height=1300)
