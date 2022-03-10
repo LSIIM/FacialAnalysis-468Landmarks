@@ -11,6 +11,7 @@ plotly = "*"
 kaleido = "*"
 matplotlib = "*"
 opencv-python = "*"
+seaborn = "*"
 
 [dev-packages]
 ipykernel = "*"
