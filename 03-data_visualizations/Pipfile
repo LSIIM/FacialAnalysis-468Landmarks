@@ -12,6 +12,7 @@ kaleido = "*"
 matplotlib = "*"
 opencv-python = "*"
 seaborn = "*"
+sklearn = "*"
 
 [dev-packages]
 ipykernel = "*"

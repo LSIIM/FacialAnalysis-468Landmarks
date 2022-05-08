@@ -8,6 +8,7 @@ pandas = "*"
 numpy = "*"
 tqdm = "*"
 xlsxwriter = "*"
+sklearn = "*"
 
 [dev-packages]
 ipykernel = "*"
