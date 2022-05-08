@@ -8,6 +8,14 @@
 
 Para cada tipo de expressão foi gerado um histograma das médias de cada usuário, para analisar a distribuição dos dados. Todos caem em uma distribuição normal
 
+## Cluster K-Means
+
+Como foram selecionados 77 pontos, houve uma sobrecarga de dados para fazer a analise. Então foi utilizada esta técnica de clusterização para reduzir a quantidade de dados.
+Os 77 pontos foram dividos em 6 grupos, mostrados na imagem abaixo
+![image](https://user-images.githubusercontent.com/42501669/167314346-cbb2a811-d579-4a31-a8af-918f1d3f09b8.png)
+
+Para a execução dos testes na secção 04 será utilizada a média de cada de distância de cada ponto
+
 ## Remoções do Dataset
 
 - 02935: Não respondeu aos questionários
