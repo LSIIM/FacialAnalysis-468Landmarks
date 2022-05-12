@@ -170,5 +170,5 @@
 168,asrsa_score,asrsa_score,0.9999999999999998
 169,asrsb_score,asrsb_score,1.0
 170,oci_score,oci_score,1.0
-171,sqr_score,sqr_score,0.9999999999999998
+171,srq_score,srq_score,0.9999999999999998
 172,age,age,1.0

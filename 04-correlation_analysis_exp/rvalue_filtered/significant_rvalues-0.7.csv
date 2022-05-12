@@ -180,11 +180,11 @@
 178,07-01_4,07-01_5,0.9238336158214979
 179,07-01_5,07-01_5,1.0
 180,dbi_score,dbi_score,1.0
-181,dbi_score,sqr_score,0.7246854936314172
+181,dbi_score,srq_score,0.7246854936314172
 182,bai_score,bai_score,1.0
-183,bai_score,sqr_score,0.7248291499986641
+183,bai_score,srq_score,0.7248291499986641
 184,asrsa_score,asrsa_score,0.9999999999999998
 185,asrsb_score,asrsb_score,1.0
 186,oci_score,oci_score,1.0
-187,sqr_score,sqr_score,0.9999999999999998
+187,srq_score,srq_score,0.9999999999999998
 188,age,age,1.0

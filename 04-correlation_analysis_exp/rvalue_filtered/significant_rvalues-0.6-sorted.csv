@@ -232,10 +232,10 @@
 239,age,age,1.0
 235,asrsa_score,asrsa_score,0.9999999999999998
 236,asrsb_score,asrsb_score,1.0
-234,bai_score,sqr_score,0.7248291499986641
+234,bai_score,srq_score,0.7248291499986641
 233,bai_score,bai_score,1.0
-232,dbi_score,sqr_score,0.7246854936314172
+232,dbi_score,srq_score,0.7246854936314172
 230,dbi_score,dbi_score,1.0
 231,dbi_score,bai_score,0.680828993759898
 237,oci_score,oci_score,1.0
-238,sqr_score,sqr_score,0.9999999999999998
+238,srq_score,srq_score,0.9999999999999998
