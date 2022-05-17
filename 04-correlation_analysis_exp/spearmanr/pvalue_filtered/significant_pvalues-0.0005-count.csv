@@ -1,6 +1,5 @@
 col_a,col_b,pvalue
-05-00_2,asrsb_score,1
-05-01_2,asrsb_score,1
+2,asrsb_score,2
 asrsa_score,asrsa_score,1
 asrsa_score,asrsb_score,1
 asrsa_score,oci_score,1
