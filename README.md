@@ -36,18 +36,9 @@ O objetivo é coletar os dados para que possam ser analisados e correlacionados 
 
 O objetivo é calcular a distancia entre cada ponto para cada ponto na expressão neutra não supervisionada e salvar essas proporções em um csv. O experimento esta descrito na pasta [`02-pattern_analysis`](https://github.com/MIGMA-Team/FacialAnalysis-468Landmarks/tree/main/02-pattern_analysis_exp)
 
-## Experimento 3 - Criação dos gráficos de pseudo-cluster e clusterization
+## Experimento 3 - Visualizaçãodos dados
 
-O obejtivo é renderizar gráficos bidimensionais para avaliar gráficamente a correlação entre as distâncias, e diferenças de distancias, com os resultados dos questionários psiquiatricos.
-Os gráficos serão dividos em n partes
-
-- Gráficos da parte 1: Todos para todos da Face inteira
-- Gráficos da parte 2: Todos para todos do agrupamento por músculo
-- Gráficos da parte 3: Todos para todos do agrupamento por grupo muscular
-- Gráficos da parte 4: Todos para todos, por músculo, do agrupamento por músculo
-- Gráficos da parte 5: Todos para todos, por grupo múscular, do agrupamento por grupo muscular
-  > talves plotar de distancia para distancia, em vez de Score X Distância, de algum resultado positivo (se der o quote do exp 4 pode ser feito tb)
-  > Como eu identifico se algo está bem clusterizado?
+Gerar representações visuais dos dados para melhor compreensão dos resultados
 
 ## Experimento 4 - Calculo de correlações
 
